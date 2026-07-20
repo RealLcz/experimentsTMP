@@ -1,0 +1,101 @@
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+TARGETS [('model.layers.0.router', 'Gemma4TextRouter'), ('model.layers.1.router', 'Gemma4TextRouter')]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/debug_gemma4_fsdp2_capture.py", line 58, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/debug_gemma4_fsdp2_capture.py", line 49, in main
+[rank0]:     model(input_ids=torch.randint(0, 64, (2, 5), device="cuda"), use_cache=False)
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1882, in _call_impl
+[rank0]:     return inner()
+[rank0]:            ^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1830, in inner
+[rank0]:     result = forward_call(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/utils/generic.py", line 911, in wrapper
+[rank0]:     output = func(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1881, in forward
+[rank0]:     outputs: Gemma4TextModelOutputWithPast = self.model(
+[rank0]:                                              ^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/utils/generic.py", line 1040, in wrapper
+[rank0]:     output = func(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 262, in wrapper
+[rank0]:     outputs = func(self, *args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1725, in forward
+[rank0]:     hidden_states = decoder_layer(
+[rank0]:                     ^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/modeling_layers.py", line 110, in __call__
+[rank0]:     return super().__call__(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1882, in _call_impl
+[rank0]:     return inner()
+[rank0]:            ^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1830, in inner
+[rank0]:     result = forward_call(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1419, in forward
+[rank0]:     hidden_states, _ = self.self_attn(
+[rank0]:                        ^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/models/gemma4/modeling_gemma4.py", line 1282, in forward
+[rank0]:     attn_output, attn_weights = attention_interface(
+[rank0]:                                 ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/transformers/integrations/sdpa_attention.py", line 154, in sdpa_attention_forward
+[rank0]:     attn_output = torch.nn.functional.scaled_dot_product_attention(
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: cuDNN error: CUDNN_STATUS_NOT_INITIALIZED
+E0719 11:47:13.206000 2224966 /mnt/vast/workspaces/cot_pixel_prediction/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 2224983) of binary: /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/bin/python3
+Traceback (most recent call last):
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+experiments/moe_localized_rl/scripts/debug_gemma4_fsdp2_capture.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-07-19_11:47:13
+  host      : cn04.head.cm.cluster43.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2224983)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

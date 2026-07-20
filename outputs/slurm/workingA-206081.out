@@ -1,0 +1,60 @@
+[slurm_gemma4_pilot] mode=attention_only
+[slurm_gemma4_pilot] node: cn28
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206081
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingA
+[gemma4] transformers 5.14.1 already satisfies Gemma 4 requirement
+[gemma4] vllm 0.19.1 already satisfies Gemma 4 requirement
+[slurm_gemma4_pilot] nnodes=2 n_gpus_per_node=8
+[download_gemma4] Model already present at /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
+[slurm_gemma4_pilot] Ray head=cn28 address=cn28:6379 gpus_per_node=8
+2026-07-18 19:09:21,647	INFO usage_lib.py:474 -- Usage stats collection is enabled by default without user confirmation because this terminal is detected to be non-interactive. To disable this, add `--disable-usage-stats` to the command that starts the cluster, or run the following command: `ray disable-usage-stats` before starting the cluster. See https://docs.ray.io/en/master/cluster/usage-stats.html for more details.
+2026-07-18 19:09:21,647	INFO scripts.py:940 -- [37mLocal node IP[39m: [1mcn28[22m
+2026-07-18 19:09:35,001	SUCC scripts.py:979 -- [32m--------------------[39m
+2026-07-18 19:09:35,001	SUCC scripts.py:980 -- [32mRay runtime started.[39m
+2026-07-18 19:09:35,001	SUCC scripts.py:981 -- [32m--------------------[39m
+2026-07-18 19:09:35,002	INFO scripts.py:983 -- [36mNext steps[39m
+2026-07-18 19:09:35,002	INFO scripts.py:986 -- To add another node to this Ray cluster, run
+2026-07-18 19:09:35,002	INFO scripts.py:989 -- [1m  ray start --address='cn28:6379'[22m
+2026-07-18 19:09:35,002	INFO scripts.py:1000 -- To connect to this Ray cluster:
+2026-07-18 19:09:35,002	INFO scripts.py:1002 -- [35mimport[39m[26m ray
+2026-07-18 19:09:35,002	INFO scripts.py:1003 -- ray[35m.[39m[26minit(_node_ip_address[35m=[39m[26m[33m'cn28'[39m[26m)
+2026-07-18 19:09:35,002	INFO scripts.py:1017 -- To submit a Ray job using the Ray Jobs CLI:
+2026-07-18 19:09:35,002	INFO scripts.py:1018 -- [1m  RAY_API_SERVER_ADDRESS='http://127.0.0.1:8265' ray job submit --working-dir . -- python my_script.py[22m
+2026-07-18 19:09:35,002	INFO scripts.py:1027 -- See https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html 
+2026-07-18 19:09:35,002	INFO scripts.py:1031 -- for more information on submitting Ray jobs to the Ray cluster.
+2026-07-18 19:09:35,002	INFO scripts.py:1036 -- To terminate the Ray runtime, run
+2026-07-18 19:09:35,002	INFO scripts.py:1037 -- [1m  ray stop[22m
+2026-07-18 19:09:35,002	INFO scripts.py:1040 -- To view the status of the cluster, use
+2026-07-18 19:09:35,002	INFO scripts.py:1041 --   [1mray status[22m[26m
+2026-07-18 19:09:35,002	INFO scripts.py:1045 -- To monitor and debug Ray, view the dashboard at 
+2026-07-18 19:09:35,002	INFO scripts.py:1046 --   [1m127.0.0.1:8265[22m[26m
+2026-07-18 19:09:35,002	INFO scripts.py:1053 -- [4mIf connection to the dashboard fails, check your firewall settings and network configuration.[24m
+[slurm_gemma4_pilot] Ray worker on cn29
+[2026-07-18 19:09:57,117 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:10:27,118 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:10:33,134 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:11:03,135 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:11:09,143 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:11:39,144 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:11:45,155 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:12:15,157 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:12:21,167 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:12:51,168 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:12:57,178 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:13:27,178 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:13:33,188 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:14:03,189 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:14:09,202 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:14:39,203 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:14:45,214 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:15:15,216 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:15:21,225 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:15:51,227 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:15:57,237 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:16:27,238 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:16:33,249 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+[2026-07-18 19:17:03,251 W 513747 513747] gcs_client.cc:205: Failed to get cluster ID from GCS server: TimedOut: Timed out while waiting for GCS to become available.
+[2026-07-18 19:17:09,261 W 513747 513747] rpc_client.h:153: Failed to connect to GCS at address cn28:6379 within 5 seconds.
+slurmstepd: error: *** JOB 206081 ON cn28 CANCELLED AT 2026-07-18T19:17:25 ***
+slurmstepd: error: *** STEP 206081.2 ON cn29 CANCELLED AT 2026-07-18T19:17:25 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

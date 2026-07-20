@@ -1,0 +1,69 @@
+[slurm_gemma4_pilot] mode=attention_only
+[slurm_gemma4_pilot] node: cn16
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206014
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingA
+[gemma4] transformers 5.14.1 already satisfies Gemma 4 requirement
+[download_gemma4] Model already present at /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
++++ dirname experiments/moe_localized_rl/scripts/run_pilot_gemma4_attention_only.sh
+++ cd experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ export EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ export OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ export PARAM_MODE=attention_only
++ PARAM_MODE=attention_only
++ bash /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/run_pilot_gemma4_full.sh
++++ dirname /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/run_pilot_gemma4_full.sh
+++ cd /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ source /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/pilot_v2_checkpoint_policy.sh
+++ export SAVE_FREQ=10
+++ SAVE_FREQ=10
+++ export MAX_ACTOR_CKPT_TO_KEEP=1
+++ MAX_ACTOR_CKPT_TO_KEEP=1
+++ export RESUME_MODE=auto
+++ RESUME_MODE=auto
+++ export TEST_FREQ=-1
+++ TEST_FREQ=-1
+++ export VAL_BEFORE_TRAIN=False
+++ VAL_BEFORE_TRAIN=False
+++ export 'CKPT_SAVE_CONTENTS=['\''model'\'']'
+++ CKPT_SAVE_CONTENTS='['\''model'\'']'
++ MODEL_PATH=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
++ TRAIN_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet
++ TEST_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet
++ N_GPUS=8
++ NNODES=1
++ TRAIN_BATCH_SIZE=128
++ PPO_MINI_BATCH_SIZE=32
++ MAX_PROMPT_LENGTH=1024
++ MAX_RESPONSE_LENGTH=2048
++ PPO_MAX_TOKEN_LEN_PER_GPU=16384
++ ROLLOUT_N=16
++ ROLLOUT_TP=2
++ ROLLOUT_GPU_MEM_UTIL=0.45
++ ACTOR_LR=1e-6
++ CLIP_RATIO_LOW=3e-4
++ CLIP_RATIO_HIGH=4e-4
++ TOTAL_EPOCHS=15
++ PROJECT_NAME=gemma4_localized_rl
++ EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ PARAM_MODE=attention_only
++ SEED=42
++ mkdir -p /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ DATA=(algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False data.train_files="['$TRAIN_FILE']" data.val_files="['$TEST_FILE']" data.train_batch_size=${TRAIN_BATCH_SIZE} data.max_prompt_length=${MAX_PROMPT_LENGTH} data.max_response_length=${MAX_RESPONSE_LENGTH} data.filter_overlong_prompts=True data.truncation='error' data.shuffle=True data.seed=${SEED} data.continuous_token.model_family=gemma4)
++ MODEL=(actor_rollout_ref.model.path="$MODEL_PATH" actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True)
++ ACTOR=(actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=${CLIP_RATIO_LOW} actor_rollout_ref.actor.clip_ratio_high=${CLIP_RATIO_HIGH} actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=${ACTOR_LR} actor_rollout_ref.actor.ppo_mini_batch_size=${PPO_MINI_BATCH_SIZE} actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=${SEED} actor_rollout_ref.actor.checkpoint.save_contents="${CKPT_SAVE_CONTENTS}" actor_rollout_ref.actor.parameter_update.mode=${PARAM_MODE} actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=${OUTPUT_DIR})
++ ROLLOUT=(actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=${ROLLOUT_TP} actor_rollout_ref.rollout.gpu_memory_utilization=${ROLLOUT_GPU_MEM_UTIL} actor_rollout_ref.rollout.n=${ROLLOUT_N} actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=$((MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH)))
++ REF=(actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.ref.fsdp_config.param_offload=True)
++ TRAINER=(trainer.balance_batch=True trainer.critic_warmup=0 trainer.logger='["console","tensorboard"]' trainer.project_name=${PROJECT_NAME} trainer.experiment_name=${EXPERIMENT_NAME} trainer.default_local_dir=${OUTPUT_DIR} trainer.n_gpus_per_node=${N_GPUS} trainer.nnodes=${NNODES} trainer.save_freq=${SAVE_FREQ} trainer.max_actor_ckpt_to_keep=${MAX_ACTOR_CKPT_TO_KEEP} trainer.resume_mode=${RESUME_MODE} trainer.test_freq=${TEST_FREQ} trainer.total_epochs=${TOTAL_EPOCHS} trainer.val_before_train=${VAL_BEFORE_TRAIN})
++ python3 -m verl.trainer.main_ppo algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False 'data.train_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet'\'']' 'data.val_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet'\'']' data.train_batch_size=128 data.max_prompt_length=1024 data.max_response_length=2048 data.filter_overlong_prompts=True data.truncation=error data.shuffle=True data.seed=42 data.continuous_token.model_family=gemma4 actor_rollout_ref.model.path=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=3e-4 actor_rollout_ref.actor.clip_ratio_high=4e-4 actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=32 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=16384 actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=42 'actor_rollout_ref.actor.checkpoint.save_contents=['\''model'\'']' actor_rollout_ref.actor.parameter_update.mode=attention_only actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.45 actor_rollout_ref.rollout.n=16 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=3072 actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.ref.fsdp_config.param_offload=True trainer.balance_batch=True trainer.critic_warmup=0 'trainer.logger=["console","tensorboard"]' trainer.project_name=gemma4_localized_rl trainer.experiment_name=gemma4_26b_a4b_gspo_attention_only_math_seed0 trainer.default_local_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA trainer.n_gpus_per_node=8 trainer.nnodes=1 trainer.save_freq=10 trainer.max_actor_ckpt_to_keep=1 trainer.resume_mode=auto trainer.test_freq=-1 trainer.total_epochs=15 trainer.val_before_train=False
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/main_ppo.py:171: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+  use_critic=need_critic(config),
+slurmstepd: error: *** JOB 206014 ON cn16 CANCELLED AT 2026-07-18T17:52:08 ***

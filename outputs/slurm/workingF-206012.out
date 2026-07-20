@@ -1,0 +1,13 @@
+[slurm_gemma4_pilot] mode=full
+[slurm_gemma4_pilot] node: cn03
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206012
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingF
+[slurm_gemma4_pilot] Upgrading transformers for Gemma 4 support...
+[download_gemma4] Installing transformers>=5.5.0 (required for Gemma 4)...
+[download_gemma4] Downloading google/gemma-4-26B-A4B-it -> /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `snapshot_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 12 files:   8%|▊         | 1/12 [00:00<00:02,  3.91it/s]Fetching 12 files:  17%|█▋        | 2/12 [00:00<00:02,  4.83it/s]Fetching 12 files:  58%|█████▊    | 7/12 [01:15<01:00, 12.12s/it]Fetching 12 files: 100%|██████████| 12/12 [01:15<00:00,  6.27s/it]
+Download complete: /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
+experiments/moe_localized_rl/scripts/download_gemma4_26b_a4b.sh: line 37: syntax error near unexpected token `('

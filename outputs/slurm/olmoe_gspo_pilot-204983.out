@@ -1,0 +1,110 @@
+[slurm_pilot] mode=moe
+[slurm_pilot] node: cn28
+[slurm_pilot] SLURM_JOB_ID: 204983
++ MODEL_PATH=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct
++ GSM8K_TRAIN_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/gsm8k/train.parquet
++ GSM8K_TEST_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/gsm8k/test.parquet
++ N_GPUS=8
++ NNODES=1
++ TRAIN_BATCH_SIZE=256
++ PPO_MINI_BATCH_SIZE=64
++ MAX_PROMPT_LENGTH=1024
++ MAX_RESPONSE_LENGTH=1024
++ PPO_MAX_TOKEN_LEN_PER_GPU=16384
++ ROLLOUT_N=16
++ ROLLOUT_TP=2
++ ROLLOUT_GPU_MEM_UTIL=0.6
++ ACTOR_LR=1e-6
++ CLIP_RATIO_LOW=3e-4
++ CLIP_RATIO_HIGH=4e-4
++ TOTAL_EPOCHS=15
++ SAVE_FREQ=10
++ TEST_FREQ=5
++ PROJECT_NAME=moe_localized_rl_pilot
++ EXPERIMENT_NAME=olmoe_gspo_moe_seed0
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_moe
++ PARAM_MODE=moe
++ SEED=42
++ mkdir -p /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_moe
++ DATA=(algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False data.train_files="['$GSM8K_TRAIN_FILE']" data.val_files="['$GSM8K_TEST_FILE']" data.train_batch_size=${TRAIN_BATCH_SIZE} data.max_prompt_length=${MAX_PROMPT_LENGTH} data.max_response_length=${MAX_RESPONSE_LENGTH} data.filter_overlong_prompts=True data.truncation='error' data.shuffle=True data.seed=${SEED})
++ MODEL=(actor_rollout_ref.model.path="$MODEL_PATH" actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True)
++ ACTOR=(actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=${CLIP_RATIO_LOW} actor_rollout_ref.actor.clip_ratio_high=${CLIP_RATIO_HIGH} actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=${ACTOR_LR} actor_rollout_ref.actor.ppo_mini_batch_size=${PPO_MINI_BATCH_SIZE} actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=${SEED} actor_rollout_ref.actor.parameter_update.mode=${PARAM_MODE} actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=${OUTPUT_DIR})
++ ROLLOUT=(actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=${ROLLOUT_TP} actor_rollout_ref.rollout.gpu_memory_utilization=${ROLLOUT_GPU_MEM_UTIL} actor_rollout_ref.rollout.n=${ROLLOUT_N} actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0)
++ REF=(actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.ref.fsdp_config.param_offload=True)
++ TRAINER=(trainer.balance_batch=True trainer.critic_warmup=0 trainer.logger='["console","tensorboard","wandb"]' trainer.project_name=${PROJECT_NAME} trainer.experiment_name=${EXPERIMENT_NAME} trainer.default_local_dir=${OUTPUT_DIR} trainer.n_gpus_per_node=${N_GPUS} trainer.nnodes=${NNODES} trainer.save_freq=${SAVE_FREQ} trainer.test_freq=${TEST_FREQ} trainer.total_epochs=${TOTAL_EPOCHS} trainer.test_before_train=True)
++ python3 -m verl.trainer.main_ppo algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False 'data.train_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/gsm8k/train.parquet'\'']' 'data.val_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/gsm8k/test.parquet'\'']' data.train_batch_size=256 data.max_prompt_length=1024 data.max_response_length=1024 data.filter_overlong_prompts=True data.truncation=error data.shuffle=True data.seed=42 actor_rollout_ref.model.path=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=3e-4 actor_rollout_ref.actor.clip_ratio_high=4e-4 actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=64 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=16384 actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=42 actor_rollout_ref.actor.parameter_update.mode=moe actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_moe actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.6 actor_rollout_ref.rollout.n=16 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.ref.fsdp_config.param_offload=True trainer.balance_batch=True trainer.critic_warmup=0 'trainer.logger=["console","tensorboard","wandb"]' trainer.project_name=moe_localized_rl_pilot trainer.experiment_name=olmoe_gspo_moe_seed0 trainer.default_local_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_moe trainer.n_gpus_per_node=8 trainer.nnodes=1 trainer.save_freq=10 trainer.test_freq=5 trainer.total_epochs=15 trainer.test_before_train=True
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 390, in _apply_overrides_to_config
+    OmegaConf.update(cfg, key, value, merge=True)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/omegaconf.py", line 741, in update
+    root.__setattr__(last_key, value)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 337, in __setattr__
+    raise e
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 334, in __setattr__
+    self.__set_impl(key, value)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 318, in __set_impl
+    self._set_item_impl(key, value)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/basecontainer.py", line 549, in _set_item_impl
+    self._validate_set(key, value)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 180, in _validate_set
+    target = self._get_node(key) if key is not None else self
+             ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 475, in _get_node
+    self._validate_get(key)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/dictconfig.py", line 164, in _validate_get
+    self._format_and_raise(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/base.py", line 231, in _format_and_raise
+    format_and_raise(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/_utils.py", line 899, in format_and_raise
+    _raise(ex, cause)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/omegaconf/_utils.py", line 797, in _raise
+    raise ex.with_traceback(sys.exc_info()[2])  # set env var OC_CAUSE=1 for full trace
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+omegaconf.errors.ConfigAttributeError: Key 'test_before_train' is not in struct
+    full_key: trainer.test_before_train
+    object_type=dict
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/main_ppo.py", line 187, in <module>
+    main()
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 223, in run_and_report
+    raise ex
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 105, in run
+    cfg = self.compose_config(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 594, in compose_config
+    cfg = self.config_loader.load_configuration(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 142, in load_configuration
+    return self._load_configuration_impl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 276, in _load_configuration_impl
+    ConfigLoaderImpl._apply_overrides_to_config(config_overrides, cfg)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 392, in _apply_overrides_to_config
+    raise ConfigCompositionException(
+hydra.errors.ConfigCompositionException: Could not override 'trainer.test_before_train'.
+To append to your config use +trainer.test_before_train=True
+Exception ignored in: <function ResourceTracker.__del__ at 0x7f1824bee3e0>
+Traceback (most recent call last):
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 80, in __del__
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 89, in _stop
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 102, in _stop_locked
+AttributeError: '_thread.RLock' object has no attribute '_recursion_count'

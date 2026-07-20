@@ -1,0 +1,42 @@
+# Large model weights (49GB) - excluded from repo
+models/
+
+# Embedded git repository (veRL framework clone)
+verl/
+
+# IDE logs
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key

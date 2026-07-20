@@ -1,0 +1,9 @@
+[slurm_gemma4_pilot] mode=attention_only
+[slurm_gemma4_pilot] node: cn16
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206013
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingA
+[slurm_gemma4_pilot] Upgrading transformers for Gemma 4 support...
+    WARNING: Ignoring invalid distribution ~uggingface-hub (/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages)
+    WARNING: Skipping huggingface-hub as it is not installed.
+ERROR: Could not install packages due to an OSError: [Errno 521] Unknown error 521: '/mnt/vast/workspaces/cot_pixel_prediction/jinhe/conda_env/verl/bin/transformers'
+

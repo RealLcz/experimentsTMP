@@ -1,0 +1,194 @@
+[slurm_pilot] mode=moe
+[slurm_pilot] node: cn35
+[slurm_pilot] SLURM_JOB_ID: 205661
++++ dirname experiments/moe_localized_rl/scripts/run_pilot_moe.sh
+++ cd experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ source /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/pilot_v2_checkpoint_policy.sh
+++ export SAVE_FREQ=10
+++ SAVE_FREQ=10
+++ export MAX_ACTOR_CKPT_TO_KEEP=1
+++ MAX_ACTOR_CKPT_TO_KEEP=1
+++ export RESUME_MODE=auto
+++ RESUME_MODE=auto
+++ export TEST_FREQ=-1
+++ TEST_FREQ=-1
+++ export TEST_BEFORE_TRAIN=False
+++ TEST_BEFORE_TRAIN=False
+++ export 'CKPT_SAVE_CONTENTS=['\''model'\'']'
+++ CKPT_SAVE_CONTENTS='['\''model'\'']'
++ MODEL_PATH=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct
++ TRAIN_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet
++ TEST_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet
++ N_GPUS=8
++ NNODES=1
++ TRAIN_BATCH_SIZE=256
++ PPO_MINI_BATCH_SIZE=64
++ MAX_PROMPT_LENGTH=1024
++ MAX_RESPONSE_LENGTH=1024
++ PPO_MAX_TOKEN_LEN_PER_GPU=16384
++ ROLLOUT_N=16
++ ROLLOUT_TP=2
++ ROLLOUT_GPU_MEM_UTIL=0.45
++ ACTOR_LR=1e-6
++ CLIP_RATIO_LOW=3e-4
++ CLIP_RATIO_HIGH=4e-4
++ TOTAL_EPOCHS=15
++ PROJECT_NAME=moe_localized_rl_pilot_v2
++ EXPERIMENT_NAME=olmoe_gspo_moe_math_seed0
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe
++ PARAM_MODE=moe
++ SEED=42
++ mkdir -p /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe
++ DATA=(algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False data.train_files="['$TRAIN_FILE']" data.val_files="['$TEST_FILE']" data.train_batch_size=${TRAIN_BATCH_SIZE} data.max_prompt_length=${MAX_PROMPT_LENGTH} data.max_response_length=${MAX_RESPONSE_LENGTH} data.filter_overlong_prompts=True data.truncation='error' data.shuffle=True data.seed=${SEED})
++ MODEL=(actor_rollout_ref.model.path="$MODEL_PATH" actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True)
++ ACTOR=(actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=${CLIP_RATIO_LOW} actor_rollout_ref.actor.clip_ratio_high=${CLIP_RATIO_HIGH} actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=${ACTOR_LR} actor_rollout_ref.actor.ppo_mini_batch_size=${PPO_MINI_BATCH_SIZE} actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=${SEED} actor_rollout_ref.actor.checkpoint.save_contents="${CKPT_SAVE_CONTENTS}" actor_rollout_ref.actor.parameter_update.mode=${PARAM_MODE} actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=${OUTPUT_DIR})
++ ROLLOUT=(actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=${ROLLOUT_TP} actor_rollout_ref.rollout.gpu_memory_utilization=${ROLLOUT_GPU_MEM_UTIL} actor_rollout_ref.rollout.n=${ROLLOUT_N} actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0)
++ REF=(actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.ref.fsdp_config.param_offload=True)
++ TRAINER=(trainer.balance_batch=True trainer.critic_warmup=0 trainer.logger='["console","tensorboard"]' trainer.project_name=${PROJECT_NAME} trainer.experiment_name=${EXPERIMENT_NAME} trainer.default_local_dir=${OUTPUT_DIR} trainer.n_gpus_per_node=${N_GPUS} trainer.nnodes=${NNODES} trainer.save_freq=${SAVE_FREQ} trainer.max_actor_ckpt_to_keep=${MAX_ACTOR_CKPT_TO_KEEP} trainer.resume_mode=${RESUME_MODE} trainer.test_freq=${TEST_FREQ} trainer.total_epochs=${TOTAL_EPOCHS} +trainer.test_before_train=${TEST_BEFORE_TRAIN})
++ python3 -m verl.trainer.main_ppo algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False 'data.train_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet'\'']' 'data.val_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet'\'']' data.train_batch_size=256 data.max_prompt_length=1024 data.max_response_length=1024 data.filter_overlong_prompts=True data.truncation=error data.shuffle=True data.seed=42 actor_rollout_ref.model.path=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=3e-4 actor_rollout_ref.actor.clip_ratio_high=4e-4 actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=64 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=16384 actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=42 'actor_rollout_ref.actor.checkpoint.save_contents=['\''model'\'']' actor_rollout_ref.actor.parameter_update.mode=moe actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.45 actor_rollout_ref.rollout.n=16 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.ref.fsdp_config.param_offload=True trainer.balance_batch=True trainer.critic_warmup=0 'trainer.logger=["console","tensorboard"]' trainer.project_name=moe_localized_rl_pilot_v2 trainer.experiment_name=olmoe_gspo_moe_math_seed0 trainer.default_local_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe trainer.n_gpus_per_node=8 trainer.nnodes=1 trainer.save_freq=10 trainer.max_actor_ckpt_to_keep=1 trainer.resume_mode=auto trainer.test_freq=-1 trainer.total_epochs=15 +trainer.test_before_train=False
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/main_ppo.py:171: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+  use_critic=need_critic(config),
+2026-07-18 07:20:13,359	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(pid=1901631)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1901631)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunnerV1 pid=1901631)[0m WARNING:2026-07-18 07:20:46,185:Platform 'nvidia' (PlatformCUDA) is registered but not available. This may be due to this ray actor being a CPU-only actor.
+[36m(TaskRunnerV1 pid=1901631)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(TaskRunnerV1 pid=1901631)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1902334)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902334)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902519)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902519)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902526)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902526)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902523)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902523)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902525)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902525)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902524)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902524)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902522)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902522)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902521)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902521)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1902520)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1902520)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunnerV1 pid=1901631)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/ppo/v1/trainer_base.py:129: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunnerV1 pid=1901631)[0m   self.use_critic = need_critic(self.config)
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):   0%|          | 0/7500 [00:00<?, ? examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  13%|█▎        | 1000/7500 [00:00<00:02, 2334.22 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  27%|██▋       | 2000/7500 [00:00<00:02, 2340.39 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  40%|████      | 3000/7500 [00:01<00:01, 2866.81 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  53%|█████▎    | 4000/7500 [00:01<00:01, 3274.12 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  67%|██████▋   | 5000/7500 [00:01<00:00, 3792.13 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  80%|████████  | 6000/7500 [00:01<00:00, 4160.79 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  93%|█████████▎| 7000/7500 [00:01<00:00, 4384.24 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 7500/7500 [00:02<00:00, 4423.60 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 7500/7500 [00:02<00:00, 3481.76 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):   0%|          | 0/5000 [00:00<?, ? examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  20%|██        | 1000/5000 [00:00<00:01, 2190.67 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  40%|████      | 2000/5000 [00:00<00:01, 2966.58 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  60%|██████    | 3000/5000 [00:00<00:00, 3438.86 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  80%|████████  | 4000/5000 [00:01<00:00, 3908.84 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 5000/5000 [00:01<00:00, 4092.27 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 5000/5000 [00:01<00:00, 3398.81 examples/s]
+[36m(TaskRunnerV1 pid=1901631)[0m INFO:2026-07-18 07:21:11,845:train and validate dataloader initialized, train dataset size: 7490, val dataset size: 4996
+[36m(TaskRunnerV1 pid=1901631)[0m INFO:2026-07-18 07:21:11,845:Total training steps: 435
+[36m(TaskRunnerV1 pid=1901631)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/ppo/v1/trainer_base.py:676: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunnerV1 pid=1901631)[0m   if need_critic(config):
+[36m(TaskRunnerV1 pid=1901631)[0m INFO:2026-07-18 07:21:11,850:worker group kwargs: {'device_name': 'cuda'}
+[36m(TaskRunnerV1 pid=1901631)[0m INFO:2026-07-18 07:21:15,621:create worker group dict_keys(['actor_rollout'])
+[36m(pid=1903455)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903455)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903450)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903450)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903453)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903453)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903452)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903452)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903451)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903451)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903456)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903456)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903457)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903457)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903454)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1903454)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1903456)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903456)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903454)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903454)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903452)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903452)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903451)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903451)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903455)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903455)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903457)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903457)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903450)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903450)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=1903453)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=1903453)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(WorkerDict pid=1903457)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903457)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903457)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903456)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903456)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903456)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903455)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903455)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903455)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903457)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903453)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903453)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903453)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903455)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903456)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903450)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903450)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903450)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903453)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903452)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903452)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903452)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903457)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.71s/it]
+[36m(WorkerDict pid=1903452)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903451)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903451)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903455)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.37s/it]
+[36m(WorkerDict pid=1903451)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903456)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.37s/it]
+[36m(WorkerDict pid=1903454)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1903454)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903454)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in OlmoeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1903453)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.05s/it]
+[36m(WorkerDict pid=1903451)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903457)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.74s/it]
+[36m(WorkerDict pid=1903455)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.31s/it]
+[36m(WorkerDict pid=1903450)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903452)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.48s/it]
+[36m(WorkerDict pid=1903456)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.35s/it]
+[36m(WorkerDict pid=1903454)[0m Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1903455)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.20s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.24s/it]
+[36m(WorkerDict pid=1903456)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.20s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.25s/it]
+[36m(WorkerDict pid=1903452)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.40s/it]
+[36m(WorkerDict pid=1903457)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.71s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.71s/it]
+[36m(WorkerDict pid=1903451)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.80s/it]
+[36m(WorkerDict pid=1903453)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.11s/it]
+[36m(WorkerDict pid=1903452)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.28s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.32s/it]
+[36m(WorkerDict pid=1903454)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.97s/it]
+[36m(WorkerDict pid=1903451)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.79s/it]
+[36m(WorkerDict pid=1903450)[0m Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.22s/it]
+[36m(WorkerDict pid=1903453)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.92s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.96s/it]
+[36m(WorkerDict pid=1903451)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.63s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.67s/it]
+[36m(WorkerDict pid=1903454)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.02s/it]
+[36m(WorkerDict pid=1903454)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.87s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:05<00:00,  1.91s/it]
+[36m(WorkerDict pid=1903450)[0m Loading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.25s/it]
+[36m(WorkerDict pid=1903450)[0m Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  2.92s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.00s/it]
+slurmstepd: error: *** JOB 205661 ON cn35 CANCELLED AT 2026-07-18T07:22:07 ***

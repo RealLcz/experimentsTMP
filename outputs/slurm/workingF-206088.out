@@ -1,0 +1,9 @@
+[slurm_gemma4_pilot] mode=full
+[slurm_gemma4_pilot] node: cn16
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206088
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingF
+[gemma4] transformers 5.14.1 already satisfies Gemma 4 requirement
+[gemma4] vllm 0.19.1 already satisfies Gemma 4 requirement
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+[gemma4] Removing broken flash_attn (/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/flash_attn_2_cuda.cpython-312-x86_64-linux-gnu.so: undefined symbol: _ZN3c104cuda29c10_cuda_check_implementationEiPKcS2_ib)

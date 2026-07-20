@@ -1,0 +1,34 @@
+{
+  "mode": "moe",
+  "model_type": "olmoe",
+  "total_parameters": 6919161856,
+  "trainable_parameters": 6444548096,
+  "frozen_parameters": 474613760,
+  "trainable_ratio": 0.9314058884764438,
+  "categories": {
+    "attention": {
+      "trainable": 0,
+      "total": 268500992
+    },
+    "experts": {
+      "trainable": 6442450944,
+      "total": 6442450944
+    },
+    "router": {
+      "trainable": 2097152,
+      "total": 2097152
+    },
+    "norm": {
+      "trainable": 0,
+      "total": 67584
+    },
+    "embedding": {
+      "trainable": 0,
+      "total": 103022592
+    },
+    "lm_head": {
+      "trainable": 0,
+      "total": 103022592
+    }
+  }
+}

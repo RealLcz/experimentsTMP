@@ -1,0 +1,19 @@
+========== Evaluating: attention_only_step230 (step=230) ==========
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+usage: __main__.py [-h] {merge,test} ...
+__main__.py: error: unrecognized arguments: --hf_model_path /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct
+[merge] /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/bin/python3 -m verl.model_merger merge --backend fsdp --local_dir /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230/actor --target_dir /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_eval/merged_models/attention_only_step230 --hf_model_path /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct
+Traceback (most recent call last):
+  File "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/tools/eval_math_checkpoint.py", line 201, in <module>
+    main()
+  File "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/tools/eval_math_checkpoint.py", line 149, in main
+    model_path = merge_fsdp_actor(args.actor_dir, args.base_model, merged_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/tools/eval_math_checkpoint.py", line 58, in merge_fsdp_actor
+    subprocess.run(cmd, check=True)
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/bin/python3', '-m', 'verl.model_merger', 'merge', '--backend', 'fsdp', '--local_dir', '/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230/actor', '--target_dir', '/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_eval/merged_models/attention_only_step230', '--hf_model_path', '/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct']' returned non-zero exit status 2.

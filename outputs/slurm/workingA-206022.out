@@ -1,0 +1,125 @@
+[slurm_gemma4_pilot] mode=attention_only
+[slurm_gemma4_pilot] node: cn22
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206022
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingA
+[gemma4] transformers 5.14.1 already satisfies Gemma 4 requirement
+[slurm_gemma4_pilot] nnodes=2 n_gpus_per_node=8
+[download_gemma4] Model already present at /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
+[slurm_gemma4_pilot] Ray head=cn22 address=172.33.1.22:6379 gpus_per_node=8
+slurmstepd: error: execve(): bad interpreter(/mnt/vast/home/ym56kacy/miniconda3/envs/verl/bin/python3.12): No such file or directory
+srun: error: cn22: task 0: Exited with exit code 2
+[slurm_gemma4_pilot] Ray worker on cn23
+slurmstepd: error: execve(): bad interpreter(/mnt/vast/home/ym56kacy/miniconda3/envs/verl/bin/python3.12): No such file or directory
+srun: error: cn23: task 0: Exited with exit code 2
+slurmstepd: error: execve(): bad interpreter(/mnt/vast/home/ym56kacy/miniconda3/envs/verl/bin/python3.12): No such file or directory
+srun: error: cn22: task 0: Exited with exit code 2
++++ dirname experiments/moe_localized_rl/scripts/run_pilot_gemma4_attention_only.sh
+++ cd experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ export EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ export OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ export PARAM_MODE=attention_only
++ PARAM_MODE=attention_only
++ bash /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/run_pilot_gemma4_full.sh attention_only
++++ dirname /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/run_pilot_gemma4_full.sh
+++ cd /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ source /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/pilot_v2_checkpoint_policy.sh
+++ export SAVE_FREQ=50
+++ SAVE_FREQ=50
+++ export MAX_ACTOR_CKPT_TO_KEEP=1
+++ MAX_ACTOR_CKPT_TO_KEEP=1
+++ export RESUME_MODE=disable
+++ RESUME_MODE=disable
+++ export TEST_FREQ=100
+++ TEST_FREQ=100
+++ export VAL_BEFORE_TRAIN=False
+++ VAL_BEFORE_TRAIN=False
+++ export 'CKPT_SAVE_CONTENTS=['\''model'\'']'
+++ CKPT_SAVE_CONTENTS='['\''model'\'']'
++ MODEL_PATH=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
++ TRAIN_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet
++ TEST_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet
++ N_GPUS=8
++ NNODES=2
++ TRAIN_BATCH_SIZE=128
++ PPO_MINI_BATCH_SIZE=32
++ MAX_PROMPT_LENGTH=1024
++ MAX_RESPONSE_LENGTH=2048
++ PPO_MAX_TOKEN_LEN_PER_GPU=16384
++ ROLLOUT_N=16
++ ROLLOUT_TP=2
++ ROLLOUT_GPU_MEM_UTIL=0.45
++ ACTOR_LR=1e-6
++ CLIP_RATIO_LOW=3e-4
++ CLIP_RATIO_HIGH=4e-4
++ TOTAL_EPOCHS=15
++ TOTAL_TRAINING_STEPS=100
++ PROJECT_NAME=gemma4_localized_rl
++ EXPERIMENT_NAME=gemma4_26b_a4b_gspo_attention_only_math_seed0
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ PARAM_MODE=attention_only
++ SEED=42
++ mkdir -p /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA
++ DATA=(algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False data.train_files="['$TRAIN_FILE']" data.val_files="['$TEST_FILE']" data.train_batch_size=${TRAIN_BATCH_SIZE} data.max_prompt_length=${MAX_PROMPT_LENGTH} data.max_response_length=${MAX_RESPONSE_LENGTH} data.filter_overlong_prompts=True data.truncation='error' data.shuffle=True data.seed=${SEED} data.continuous_token.model_family=gemma4)
++ MODEL=(actor_rollout_ref.model.path="$MODEL_PATH" actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True)
++ ACTOR=(actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=${CLIP_RATIO_LOW} actor_rollout_ref.actor.clip_ratio_high=${CLIP_RATIO_HIGH} actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=${ACTOR_LR} actor_rollout_ref.actor.ppo_mini_batch_size=${PPO_MINI_BATCH_SIZE} actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=${SEED} actor_rollout_ref.actor.checkpoint.save_contents="${CKPT_SAVE_CONTENTS}" actor_rollout_ref.actor.parameter_update.mode=${PARAM_MODE} actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=${OUTPUT_DIR})
++ ROLLOUT=(actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=${ROLLOUT_TP} actor_rollout_ref.rollout.gpu_memory_utilization=${ROLLOUT_GPU_MEM_UTIL} actor_rollout_ref.rollout.n=${ROLLOUT_N} actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=$((MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH)))
++ REF=(actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.ref.fsdp_config.param_offload=True)
++ TRAINER=(trainer.balance_batch=True trainer.critic_warmup=0 trainer.logger='["console","tensorboard"]' trainer.project_name=${PROJECT_NAME} trainer.experiment_name=${EXPERIMENT_NAME} trainer.default_local_dir=${OUTPUT_DIR} trainer.n_gpus_per_node=${N_GPUS} trainer.nnodes=${NNODES} trainer.save_freq=${SAVE_FREQ} trainer.max_actor_ckpt_to_keep=${MAX_ACTOR_CKPT_TO_KEEP} trainer.resume_mode=${RESUME_MODE} trainer.test_freq=${TEST_FREQ} trainer.total_epochs=${TOTAL_EPOCHS} trainer.total_training_steps=${TOTAL_TRAINING_STEPS} trainer.val_before_train=${VAL_BEFORE_TRAIN})
++ RAY_ARGS=()
++ [[ -n 172.33.1.22:6379 ]]
++ RAY_ARGS+=(ray_kwargs.ray_init.address="${RAY_ADDRESS}")
++ python3 -m verl.trainer.main_ppo algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False 'data.train_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet'\'']' 'data.val_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet'\'']' data.train_batch_size=128 data.max_prompt_length=1024 data.max_response_length=2048 data.filter_overlong_prompts=True data.truncation=error data.shuffle=True data.seed=42 data.continuous_token.model_family=gemma4 actor_rollout_ref.model.path=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=3e-4 actor_rollout_ref.actor.clip_ratio_high=4e-4 actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=32 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=16384 actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=42 'actor_rollout_ref.actor.checkpoint.save_contents=['\''model'\'']' actor_rollout_ref.actor.parameter_update.mode=attention_only actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.45 actor_rollout_ref.rollout.n=16 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=3072 actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.ref.fsdp_config.param_offload=True trainer.balance_batch=True trainer.critic_warmup=0 'trainer.logger=["console","tensorboard"]' trainer.project_name=gemma4_localized_rl trainer.experiment_name=gemma4_26b_a4b_gspo_attention_only_math_seed0 trainer.default_local_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingA trainer.n_gpus_per_node=8 trainer.nnodes=2 trainer.save_freq=50 trainer.max_actor_ckpt_to_keep=1 trainer.resume_mode=disable trainer.test_freq=100 trainer.total_epochs=15 trainer.total_training_steps=100 trainer.val_before_train=False ray_kwargs.ray_init.address=172.33.1.22:6379 attention_only
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/main_ppo.py", line 187, in <module>
+    main()
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 223, in run_and_report
+    raise ex
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 105, in run
+    cfg = self.compose_config(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 594, in compose_config
+    cfg = self.config_loader.load_configuration(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 142, in load_configuration
+    return self._load_configuration_impl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 244, in _load_configuration_impl
+    parsed_overrides, caching_repo = self._parse_overrides_and_create_caching_repo(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/_internal/config_loader_impl.py", line 228, in _parse_overrides_and_create_caching_repo
+    parsed_overrides = parser.parse_overrides(overrides=overrides)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/hydra/core/override_parser/overrides_parser.py", line 96, in parse_overrides
+    raise OverrideParseException(
+hydra.errors.OverrideParseException: Error parsing override 'attention_only'
+missing EQUAL at '<EOF>'
+See https://hydra.cc/docs/1.2/advanced/override_grammar/basic for details
+Exception ignored in: <function ResourceTracker.__del__ at 0x7f1ef8110180>
+Traceback (most recent call last):
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 80, in __del__
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 89, in _stop
+  File "/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/multiprocess/resource_tracker.py", line 102, in _stop_locked
+AttributeError: '_thread.RLock' object has no attribute '_recursion_count'
+srun: error: cn22: task 0: Exited with exit code 1

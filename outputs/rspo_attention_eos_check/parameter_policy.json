@@ -1,0 +1,34 @@
+{
+  "mode": "attention_only",
+  "model_type": "gemma4",
+  "total_parameters": 24698004784,
+  "trainable_parameters": 1110197760,
+  "frozen_parameters": 23587807024,
+  "trainable_ratio": 0.044950908776210725,
+  "categories": {
+    "attention": {
+      "trainable": 1110197760,
+      "total": 1110197760
+    },
+    "experts": {
+      "trainable": 0,
+      "total": 22837985280
+    },
+    "router": {
+      "trainable": 0,
+      "total": 10901760
+    },
+    "norm": {
+      "trainable": 0,
+      "total": 722480
+    },
+    "embedding": {
+      "trainable": 0,
+      "total": 738197504
+    },
+    "lm_head": {
+      "trainable": 0,
+      "total": 0
+    }
+  }
+}

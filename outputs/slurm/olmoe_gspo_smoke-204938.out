@@ -1,0 +1,5 @@
+[slurm_smoke] mode=full
+[slurm_smoke] node: cn24
+[slurm_smoke] SLURM_JOB_ID: 204938
+[slurm_smoke] gres: 
+/var/spool/slurmd/job204938/slurm_script: line 44: PYTHONPATH: unbound variable

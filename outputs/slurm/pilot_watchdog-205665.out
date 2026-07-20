@@ -1,0 +1,734 @@
+[2026-07-18T07:22:16+00:00] Watchdog started (interval=120s, max_resubmit=9999)
+[2026-07-18T07:22:16+00:00] Checkpoint policy: save_freq=10, max_actor_ckpt_to_keep=1, resume_mode=auto
+[2026-07-18T07:22:16+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:22:16+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:22:16+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:24:16+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:24:16+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:24:17+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:26:17+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:26:17+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:26:17+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:28:17+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:28:17+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:28:17+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress=n/a
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:30:18+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 14%|█▍        | 60/435 [00:00<?, ?it/s]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:30:18+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress= 16%|█▌        | 70/435 [00:00<?, ?it/s]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:30:18+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 21%|██        | 90/435 [00:00<?, ?it/s]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:32:18+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 14%|█▍        | 61/435 [02:51<17:51:17, 171.86s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:32:18+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress= 17%|█▋        | 72/435 [02:42<7:30:52, 74.52s/it]  
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:32:18+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 21%|██        | 91/435 [02:50<16:14:41, 170.00s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:34:19+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 14%|█▍        | 62/435 [04:24<12:59:13, 125.34s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:34:19+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress= 17%|█▋        | 75/435 [04:49<4:52:07, 48.69s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:34:19+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 21%|██        | 92/435 [04:25<11:59:54, 125.93s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:36:19+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 15%|█▍        | 64/435 [07:27<10:31:05, 102.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:36:19+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70 progress= 18%|█▊        | 78/435 [06:47<4:10:27, 42.09s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:36:19+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 22%|██▏       | 94/435 [07:31<9:51:12, 104.03s/it] 
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:38:19+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 15%|█▌        | 66/435 [09:48<8:35:00, 83.74s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:38:20+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_80 progress= 19%|█▉        | 82/435 [09:29<3:59:12, 40.66s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_70
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_80 (tracker=80, removed 1)
+[2026-07-18T07:38:21+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 22%|██▏       | 95/435 [09:11<9:41:21, 102.59s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:40:21+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 15%|█▌        | 67/435 [10:55<8:00:36, 78.36s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:40:21+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_80 progress= 20%|█▉        | 85/435 [11:26<3:49:39, 39.37s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:40:22+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 22%|██▏       | 96/435 [10:46<9:24:46, 99.96s/it] 
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:42:22+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60 progress= 16%|█▌        | 69/435 [13:05<7:11:30, 70.74s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:42:22+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_80 progress= 20%|██        | 88/435 [13:24<3:49:10, 39.63s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:42:22+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 22%|██▏       | 97/435 [12:21<9:12:45, 98.12s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:44:22+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70 progress= 16%|█▋        | 71/435 [15:13<6:45:23, 66.82s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_60
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70 (tracker=70, removed 1)
+[2026-07-18T07:44:24+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90 progress= 21%|██        | 91/435 [15:30<3:54:00, 40.82s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_80
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90 (tracker=90, removed 1)
+[2026-07-18T07:44:24+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 23%|██▎       | 99/435 [15:24<8:51:09, 94.85s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:46:24+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70 progress= 17%|█▋        | 73/435 [17:10<6:15:28, 62.23s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:46:24+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90 progress= 22%|██▏       | 94/435 [17:22<3:40:47, 38.85s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:46:25+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90 progress= 23%|██▎       | 100/435 [17:16<9:18:02, 99.95s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_90
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 (tracker=100, removed 1)
+[2026-07-18T07:48:25+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70 progress= 17%|█▋        | 76/435 [19:31<5:07:32, 51.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:48:25+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90 progress= 22%|██▏       | 97/435 [19:16<3:35:37, 38.28s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:48:25+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 23%|██▎       | 101/435 [18:59<9:21:52, 100.94s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:50:25+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70 progress= 18%|█▊        | 79/435 [21:32<4:22:15, 44.20s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:50:25+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90 progress= 23%|██▎       | 100/435 [21:23<3:53:35, 41.84s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_90
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_100 (tracker=100, removed 1)
+[2026-07-18T07:50:25+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 23%|██▎       | 102/435 [20:35<9:11:34, 99.38s/it] 
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:52:26+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_80 progress= 19%|█▉        | 82/435 [23:47<4:17:33, 43.78s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_70
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_80 (tracker=80, removed 1)
+[2026-07-18T07:52:26+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_100 progress= 24%|██▎       | 103/435 [23:21<3:42:20, 40.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:52:26+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 24%|██▍       | 104/435 [23:39<8:47:26, 95.61s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:54:26+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_80 progress= 20%|█▉        | 85/435 [25:44<3:57:31, 40.72s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:54:26+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_100 progress= 25%|██▍       | 107/435 [25:53<3:30:12, 38.45s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:54:26+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 24%|██▍       | 105/435 [25:08<8:34:52, 93.61s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:56:27+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_80 progress= 20%|██        | 88/435 [27:44<3:54:48, 40.60s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T07:56:27+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110 progress= 25%|██▌       | 109/435 [27:10<3:27:38, 38.22s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_100
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110 (tracker=110, removed 1)
+[2026-07-18T07:56:27+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 24%|██▍       | 106/435 [26:44<8:37:17, 94.34s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T07:58:27+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90 progress= 21%|██        | 91/435 [29:50<3:56:24, 41.23s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_80
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90 (tracker=90, removed 1)
+[2026-07-18T07:58:27+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110 progress= 26%|██▌       | 112/435 [29:15<3:33:37, 39.68s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T07:58:27+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 25%|██▍       | 108/435 [29:54<8:36:16, 94.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:00:28+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90 progress= 22%|██▏       | 94/435 [31:47<3:47:00, 39.94s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:00:28+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110 progress= 27%|██▋       | 116/435 [31:46<3:24:08, 38.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:00:28+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100 progress= 25%|██▌       | 109/435 [31:25<8:28:35, 93.61s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:02:28+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90 progress= 22%|██▏       | 97/435 [33:42<3:38:56, 38.87s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:02:28+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110 progress= 27%|██▋       | 119/435 [33:47<3:29:10, 39.72s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:02:28+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 25%|██▌       | 110/435 [33:08<8:42:21, 96.43s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_100
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 (tracker=110, removed 1)
+[2026-07-18T08:04:29+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90 progress= 23%|██▎       | 99/435 [35:01<3:39:14, 39.15s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_90
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_100 (tracker=100, removed 1)
+[2026-07-18T08:04:29+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_120 progress= 28%|██▊       | 122/435 [35:54<3:34:28, 41.11s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_110
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_120 (tracker=120, removed 1)
+[2026-07-18T08:04:29+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 26%|██▌       | 111/435 [34:39<8:32:56, 94.99s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:06:29+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_100 progress= 24%|██▎       | 103/435 [37:52<3:47:14, 41.07s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:06:29+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_120 progress= 29%|██▊       | 125/435 [37:48<3:21:37, 39.03s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:06:29+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 26%|██▌       | 113/435 [37:46<8:25:11, 94.13s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:08:30+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_100 progress= 24%|██▍       | 106/435 [39:50<3:39:56, 40.11s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:08:30+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_120 progress= 29%|██▉       | 128/435 [39:46<3:20:22, 39.16s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:08:30+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 26%|██▌       | 114/435 [39:19<8:21:35, 93.76s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:10:30+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_100 progress= 25%|██▌       | 109/435 [41:48<3:35:28, 39.66s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:10:30+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_130 progress= 30%|███       | 131/435 [41:52<3:28:22, 41.13s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_120
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_130 (tracker=130, removed 1)
+[2026-07-18T08:10:30+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 26%|██▋       | 115/435 [40:52<8:18:51, 93.54s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:12:30+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_110 progress= 26%|██▌       | 112/435 [43:55<3:38:42, 40.63s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_100
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_110 (tracker=110, removed 1)
+[2026-07-18T08:12:31+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_130 progress= 31%|███       | 134/435 [43:47<3:16:19, 39.14s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:12:31+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 27%|██▋       | 117/435 [43:54<8:08:18, 92.14s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:14:31+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_110 progress= 26%|██▋       | 115/435 [45:55<3:35:52, 40.48s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:14:31+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_130 progress= 31%|███▏      | 137/435 [45:40<3:08:34, 37.97s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:14:31+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 27%|██▋       | 118/435 [45:25<8:05:10, 91.83s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:16:31+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_110 progress= 27%|██▋       | 118/435 [47:53<3:29:24, 39.64s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:16:32+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140 progress= 32%|███▏      | 140/435 [47:43<3:21:39, 41.02s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_130
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140 (tracker=140, removed 1)
+[2026-07-18T08:16:32+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110 progress= 27%|██▋       | 119/435 [46:56<8:02:15, 91.57s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:18:32+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_120 progress= 28%|██▊       | 121/435 [50:01<3:36:41, 41.40s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_110
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_120 (tracker=120, removed 1)
+[2026-07-18T08:18:32+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140 progress= 33%|███▎      | 143/435 [49:35<3:07:56, 38.62s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:18:32+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 28%|██▊       | 120/435 [48:37<8:15:35, 94.40s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_110
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 (tracker=120, removed 1)
+[2026-07-18T08:20:32+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_120 progress= 29%|██▊       | 124/435 [51:59<3:27:37, 40.05s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:20:33+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140 progress= 34%|███▎      | 146/435 [51:32<3:08:08, 39.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:20:33+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 28%|██▊       | 122/435 [51:41<8:06:38, 93.29s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:22:33+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_120 progress= 29%|██▉       | 127/435 [53:58<3:23:47, 39.70s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:22:33+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140 progress= 34%|███▍      | 149/435 [53:29<3:06:53, 39.21s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:22:33+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 28%|██▊       | 123/435 [53:12<8:01:59, 92.69s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:24:33+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130 progress= 30%|██▉       | 129/435 [55:17<3:22:35, 39.72s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_120
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130 (tracker=130, removed 1)
+[2026-07-18T08:24:34+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_150 progress= 35%|███▍      | 152/435 [55:34<3:08:47, 40.03s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_140
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_150 (tracker=150, removed 1)
+[2026-07-18T08:24:34+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 29%|██▊       | 125/435 [56:00<7:35:35, 88.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:26:34+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130 progress= 31%|███       | 133/435 [58:10<3:29:22, 41.60s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:26:34+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_150 progress= 36%|███▌      | 155/435 [57:30<3:03:19, 39.28s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:26:34+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 29%|██▉       | 126/435 [57:30<7:35:56, 88.53s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:28:34+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130 progress= 31%|███▏      | 136/435 [1:00:08<3:19:02, 39.94s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:28:35+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_150 progress= 37%|███▋      | 159/435 [1:00:03<2:57:45, 38.64s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:28:35+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 29%|██▉       | 127/435 [58:59<7:35:18, 88.70s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:30:35+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130 progress= 32%|███▏      | 139/435 [1:02:04<3:13:16, 39.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:30:35+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_160 progress= 37%|███▋      | 161/435 [1:01:31<3:08:07, 41.20s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_150
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_160 (tracker=160, removed 1)
+[2026-07-18T08:30:35+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120 progress= 30%|██▉       | 129/435 [1:01:49<7:21:31, 86.57s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:32:35+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_140 progress= 32%|███▏      | 141/435 [1:03:34<3:24:08, 41.66s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_130
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_140 (tracker=140, removed 1)
+[2026-07-18T08:32:36+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_160 progress= 38%|███▊      | 164/435 [1:03:29<2:58:30, 39.52s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:32:36+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 30%|██▉       | 130/435 [1:03:28<7:39:04, 90.31s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_120
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 (tracker=130, removed 1)
+[2026-07-18T08:34:36+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_140 progress= 33%|███▎      | 145/435 [1:06:10<3:10:19, 39.38s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:34:36+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_160 progress= 39%|███▊      | 168/435 [1:06:04<2:52:25, 38.75s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:34:36+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 30%|███       | 131/435 [1:04:55<7:32:32, 89.32s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:36:36+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_140 progress= 34%|███▍      | 148/435 [1:08:11<3:09:47, 39.68s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:36:37+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_170 progress= 39%|███▉      | 170/435 [1:07:31<3:03:38, 41.58s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_160
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_170 (tracker=170, removed 1)
+[2026-07-18T08:36:37+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 31%|███       | 133/435 [1:07:40<7:10:01, 85.44s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:38:37+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_150 progress= 34%|███▍      | 150/435 [1:09:40<3:22:28, 42.63s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_140
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_150 (tracker=150, removed 1)
+[2026-07-18T08:38:37+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_170 progress= 40%|███▉      | 173/435 [1:09:29<2:55:18, 40.15s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:38:37+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 31%|███       | 134/435 [1:09:00<7:00:30, 83.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:40:37+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_150 progress= 35%|███▌      | 153/435 [1:11:36<3:09:51, 40.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:40:38+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_170 progress= 41%|████      | 177/435 [1:12:03<2:46:31, 38.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:40:38+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 31%|███▏      | 136/435 [1:11:51<7:01:11, 84.52s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:42:38+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_150 progress= 36%|███▌      | 156/435 [1:13:38<3:06:49, 40.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:42:38+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180 progress= 41%|████      | 179/435 [1:13:19<2:44:23, 38.53s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_170
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180 (tracker=180, removed 1)
+[2026-07-18T08:42:38+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 31%|███▏      | 137/435 [1:13:11<6:53:10, 83.19s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:44:38+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160 progress= 37%|███▋      | 159/435 [1:15:35<3:01:25, 39.44s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_150
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160 (tracker=160, removed 1)
+[2026-07-18T08:44:39+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180 progress= 42%|████▏     | 183/435 [1:15:57<2:41:00, 38.34s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:44:39+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130 progress= 32%|███▏      | 138/435 [1:14:32<6:48:34, 82.54s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:46:39+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160 progress= 37%|███▋      | 162/435 [1:17:39<3:02:51, 40.19s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:46:39+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180 progress= 43%|████▎     | 186/435 [1:17:51<2:38:52, 38.28s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:46:39+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 32%|███▏      | 140/435 [1:17:27<7:01:20, 85.70s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_130
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 (tracker=140, removed 1)
+[2026-07-18T08:48:39+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160 progress= 38%|███▊      | 165/435 [1:19:36<2:57:30, 39.45s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:48:40+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180 progress= 43%|████▎     | 189/435 [1:19:42<2:32:59, 37.32s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:48:40+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 32%|███▏      | 141/435 [1:18:52<6:58:49, 85.47s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:50:40+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160 progress= 39%|███▊      | 168/435 [1:21:39<2:58:50, 40.19s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:50:40+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_190 progress= 44%|████▍     | 192/435 [1:21:45<2:38:02, 39.02s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_180
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_190 (tracker=190, removed 1)
+[2026-07-18T08:50:40+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 33%|███▎      | 143/435 [1:21:37<6:48:26, 83.93s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:52:40+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_170 progress= 39%|███▉      | 171/435 [1:23:53<3:07:07, 42.53s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_160
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_170 (tracker=170, removed 1)
+[2026-07-18T08:52:41+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_190 progress= 45%|████▍     | 195/435 [1:23:40<2:34:19, 38.58s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:52:41+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 33%|███▎      | 144/435 [1:22:59<6:44:00, 83.30s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:54:41+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_170 progress= 40%|████      | 174/435 [1:25:49<2:53:38, 39.92s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:54:41+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_190 progress= 46%|████▌     | 198/435 [1:25:36<2:32:45, 38.67s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:54:41+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 34%|███▎      | 146/435 [1:25:52<6:48:20, 84.78s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:56:41+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_170 progress= 41%|████      | 177/435 [1:27:47<2:50:45, 39.71s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T08:56:41+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_200 progress= 46%|████▌     | 201/435 [1:27:41<2:38:40, 40.69s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_190
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_200 (tracker=200, removed 1)
+[2026-07-18T08:56:42+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 34%|███▍      | 147/435 [1:27:15<6:44:20, 84.24s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T08:58:42+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180 progress= 41%|████▏     | 180/435 [1:29:53<2:58:46, 42.07s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_170
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180 (tracker=180, removed 1)
+[2026-07-18T08:58:42+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_200 progress= 47%|████▋     | 204/435 [1:29:38<2:33:25, 39.85s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T08:58:42+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140 progress= 34%|███▍      | 148/435 [1:28:38<6:41:11, 83.87s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:00:42+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180 progress= 42%|████▏     | 183/435 [1:31:53<2:51:35, 40.85s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:00:42+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_200 progress= 48%|████▊     | 207/435 [1:31:35<2:29:53, 39.45s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:00:43+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 34%|███▍      | 150/435 [1:31:44<7:02:36, 88.97s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_140
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 (tracker=150, removed 1)
+[2026-07-18T09:02:43+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180 progress= 43%|████▎     | 186/435 [1:33:55<2:50:00, 40.96s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:02:43+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_210 progress= 48%|████▊     | 210/435 [1:33:39<2:34:47, 41.28s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_200
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_210 (tracker=210, removed 1)
+[2026-07-18T09:02:43+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 35%|███▍      | 151/435 [1:33:03<6:47:03, 86.00s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:04:43+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180 progress= 43%|████▎     | 189/435 [1:35:53<2:42:42, 39.68s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:04:43+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_210 progress= 49%|████▉     | 213/435 [1:35:36<2:27:45, 39.94s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:04:44+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 35%|███▌      | 153/435 [1:35:56<6:44:27, 86.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:06:44+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_190 progress= 44%|████▍     | 192/435 [1:38:04<2:48:14, 41.54s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_180
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_190 (tracker=190, removed 1)
+[2026-07-18T09:06:44+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_210 progress= 50%|████▉     | 217/435 [1:38:11<2:22:17, 39.16s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:06:44+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 35%|███▌      | 154/435 [1:37:24<6:45:09, 86.51s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:08:44+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_190 progress= 45%|████▍     | 195/435 [1:40:04<2:43:02, 40.76s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:08:44+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220 progress= 50%|█████     | 219/435 [1:39:27<2:18:32, 38.48s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_210
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220 (tracker=220, removed 1)
+[2026-07-18T09:08:45+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 36%|███▌      | 155/435 [1:38:56<6:52:10, 88.32s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:10:45+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_190 progress= 46%|████▌     | 198/435 [1:42:02<2:36:49, 39.70s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:10:45+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220 progress= 51%|█████▏    | 223/435 [1:42:05<2:16:23, 38.60s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:10:45+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 36%|███▌      | 156/435 [1:40:20<6:44:28, 86.98s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:12:45+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_200 progress= 46%|████▌     | 201/435 [1:44:14<2:45:16, 42.38s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_190
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_200 (tracker=200, removed 1)
+[2026-07-18T09:12:46+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220 progress= 52%|█████▏    | 226/435 [1:44:01<2:14:39, 38.66s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:12:46+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150 progress= 36%|███▋      | 158/435 [1:43:10<6:36:03, 85.79s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:14:46+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_200 progress= 47%|████▋     | 204/435 [1:46:12<2:36:38, 40.69s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:14:46+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220 progress= 53%|█████▎    | 229/435 [1:45:53<2:09:55, 37.84s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:14:46+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 37%|███▋      | 159/435 [1:44:39<6:39:07, 86.77s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_150
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 (tracker=160, removed 1)
+[2026-07-18T09:16:46+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_200 progress= 48%|████▊     | 207/435 [1:48:11<2:32:22, 40.10s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:16:47+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_230 progress= 53%|█████▎    | 232/435 [1:47:59<2:14:23, 39.72s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_220
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_230 (tracker=230, removed 1)
+[2026-07-18T09:16:47+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 37%|███▋      | 161/435 [1:47:35<6:39:11, 87.41s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:18:47+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210 progress= 48%|████▊     | 209/435 [1:49:33<2:32:58, 40.61s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_200
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210 (tracker=210, removed 1)
+[2026-07-18T09:18:47+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_230 progress= 54%|█████▍    | 235/435 [1:49:55<2:10:39, 39.20s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:18:47+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 37%|███▋      | 162/435 [1:49:03<6:38:24, 87.56s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:20:47+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210 progress= 49%|████▉     | 213/435 [1:52:21<2:32:07, 41.11s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:20:48+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_230 progress= 55%|█████▍    | 238/435 [1:51:51<2:08:10, 39.04s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:20:48+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 38%|███▊      | 164/435 [1:51:48<6:24:01, 85.02s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:22:48+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210 progress= 50%|████▉     | 216/435 [1:54:20<2:26:20, 40.09s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:22:48+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_240 progress= 55%|█████▌    | 241/435 [1:53:57<2:11:18, 40.61s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_230
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_240 (tracker=240, removed 1)
+[2026-07-18T09:22:48+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 38%|███▊      | 165/435 [1:53:11<6:19:54, 84.42s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:24:48+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210 progress= 50%|█████     | 218/435 [1:55:51<2:34:55, 42.84s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:24:49+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_240 progress= 56%|█████▌    | 244/435 [1:55:53<2:05:17, 39.36s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:24:49+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 38%|███▊      | 167/435 [1:56:03<6:18:43, 84.79s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:26:49+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_220 progress= 51%|█████     | 221/435 [1:58:01<2:32:50, 42.85s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_210
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_220 (tracker=220, removed 1)
+[2026-07-18T09:26:49+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_240 progress= 57%|█████▋    | 247/435 [1:57:53<2:03:27, 39.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:26:49+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160 progress= 39%|███▊      | 168/435 [1:57:24<6:12:41, 83.75s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:28:49+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_220 progress= 51%|█████▏    | 224/435 [2:00:04<2:26:40, 41.71s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:28:50+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_250 progress= 57%|█████▋    | 250/435 [1:59:58<2:09:20, 41.95s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_240
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_250 (tracker=250, removed 1)
+[2026-07-18T09:28:50+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 39%|███▉      | 169/435 [1:58:51<6:15:39, 84.74s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_160
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 (tracker=170, removed 1)
+[2026-07-18T09:30:50+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_220 progress= 52%|█████▏    | 227/435 [2:02:04<2:19:24, 40.21s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:30:50+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_250 progress= 58%|█████▊    | 253/435 [2:01:55<2:01:16, 39.98s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:30:50+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 39%|███▉      | 171/435 [2:01:43<6:14:02, 85.01s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:32:51+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230 progress= 53%|█████▎    | 230/435 [2:04:12<2:26:20, 42.83s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_220
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230 (tracker=230, removed 1)
+[2026-07-18T09:32:51+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_250 progress= 59%|█████▉    | 256/435 [2:03:48<1:55:01, 38.55s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:32:51+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 40%|███▉      | 172/435 [2:03:07<6:10:57, 84.63s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:34:51+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230 progress= 54%|█████▎    | 233/435 [2:06:18<2:22:03, 42.20s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:34:51+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260 progress= 60%|█████▉    | 259/435 [2:05:43<1:52:57, 38.51s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_250
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260 (tracker=260, removed 1)
+[2026-07-18T09:34:52+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 40%|████      | 174/435 [2:05:50<6:02:56, 83.43s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:36:52+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230 progress= 54%|█████▍    | 236/435 [2:08:18<2:15:09, 40.75s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:36:52+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260 progress= 60%|██████    | 262/435 [2:07:45<1:53:24, 39.33s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:36:52+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 40%|████      | 175/435 [2:07:11<5:58:22, 82.70s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:38:52+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230 progress= 55%|█████▍    | 239/435 [2:10:23<2:15:21, 41.44s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:38:52+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260 progress= 61%|██████    | 266/435 [2:10:19<1:48:41, 38.59s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:38:53+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 41%|████      | 177/435 [2:10:00<6:00:13, 83.77s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:40:53+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_240 progress= 55%|█████▌    | 241/435 [2:11:52<2:18:00, 42.68s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_230
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_240 (tracker=240, removed 1)
+[2026-07-18T09:40:53+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260 progress= 62%|██████▏   | 268/435 [2:11:35<1:46:30, 38.27s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:40:53+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170 progress= 41%|████      | 178/435 [2:11:20<5:54:20, 82.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:42:53+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_240 progress= 56%|█████▌    | 244/435 [2:13:54<2:12:08, 41.51s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:42:53+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_270 progress= 63%|██████▎   | 272/435 [2:14:19<1:49:49, 40.42s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_260
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_270 (tracker=270, removed 1)
+[2026-07-18T09:42:54+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 41%|████      | 179/435 [2:12:42<5:52:04, 82.52s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_170
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 (tracker=180, removed 1)
+[2026-07-18T09:44:54+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_240 progress= 57%|█████▋    | 247/435 [2:15:56<2:07:18, 40.63s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:44:54+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_270 progress= 63%|██████▎   | 275/435 [2:16:18<1:46:16, 39.85s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:44:54+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 42%|████▏     | 181/435 [2:15:32<5:53:07, 83.42s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:46:54+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250 progress= 57%|█████▋    | 250/435 [2:18:07<2:13:45, 43.38s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_240
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250 (tracker=250, removed 1)
+[2026-07-18T09:46:54+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_270 progress= 64%|██████▍   | 278/435 [2:18:13<1:41:42, 38.87s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:46:55+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 42%|████▏     | 183/435 [2:18:16<5:47:08, 82.65s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:48:55+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250 progress= 58%|█████▊    | 253/435 [2:20:07<2:04:41, 41.11s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:48:55+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_280 progress= 64%|██████▍   | 280/435 [2:19:44<1:49:46, 42.50s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_270
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_280 (tracker=280, removed 1)
+[2026-07-18T09:48:55+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 42%|████▏     | 184/435 [2:19:44<5:52:27, 84.25s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:50:55+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250 progress= 59%|█████▉    | 256/435 [2:22:13<2:04:30, 41.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:50:56+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_280 progress= 65%|██████▌   | 283/435 [2:21:40<1:41:35, 40.10s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:50:56+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 43%|████▎     | 185/435 [2:21:11<5:54:03, 84.97s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:52:56+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250 progress= 60%|█████▉    | 259/435 [2:24:15<2:00:39, 41.13s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:52:56+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_280 progress= 66%|██████▌   | 286/435 [2:23:38<1:38:16, 39.58s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:52:56+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 43%|████▎     | 187/435 [2:23:54<5:44:20, 83.31s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:54:57+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_260 progress= 60%|██████    | 262/435 [2:26:23<1:59:50, 41.56s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_250
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_260 (tracker=260, removed 1)
+[2026-07-18T09:54:57+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 progress= 66%|██████▋   | 289/435 [2:25:33<1:34:02, 38.65s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_280
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 (tracker=290, removed 1)
+[2026-07-18T09:54:57+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180 progress= 43%|████▎     | 188/435 [2:25:15<5:40:11, 82.64s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T09:56:57+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_260 progress= 61%|██████    | 265/435 [2:28:24<1:55:36, 40.80s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:56:57+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 progress= 67%|██████▋   | 293/435 [2:28:19<1:35:14, 40.25s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:56:58+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 43%|████▎     | 189/435 [2:26:41<5:42:58, 83.65s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_180
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 (tracker=190, removed 1)
+[2026-07-18T09:58:58+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_260 progress= 62%|██████▏   | 268/435 [2:30:24<1:52:45, 40.51s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T09:58:58+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 progress= 68%|██████▊   | 295/435 [2:30:02<1:49:10, 46.79s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T09:58:58+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 44%|████▍     | 191/435 [2:29:31<5:40:13, 83.66s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:00:58+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_270 progress= 62%|██████▏   | 270/435 [2:31:54<1:58:45, 43.19s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_260
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_270 (tracker=270, removed 1)
+[2026-07-18T10:00:59+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 progress= 68%|██████▊   | 296/435 [2:31:29<2:16:41, 59.00s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:00:59+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 44%|████▍     | 193/435 [2:32:12<5:31:37, 82.22s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:02:59+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_270 progress= 63%|██████▎   | 273/435 [2:33:59<1:53:00, 41.86s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:02:59+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290 progress= 69%|██████▊   | 299/435 [2:34:05<1:58:53, 52.45s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:02:59+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 45%|████▍     | 194/435 [2:33:34<5:29:18, 81.99s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:04:59+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_270 progress= 63%|██████▎   | 276/435 [2:36:00<1:48:50, 41.07s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:05:00+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_300 progress= 69%|██████▉   | 302/435 [2:36:22<1:43:45, 46.80s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_290
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_300 (tracker=300, removed 1)
+[2026-07-18T10:05:00+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 45%|████▌     | 196/435 [2:36:11<5:19:24, 80.19s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:07:00+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280 progress= 64%|██████▍   | 279/435 [2:38:03<1:46:34, 40.99s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_270
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280 (tracker=280, removed 1)
+[2026-07-18T10:07:00+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_300 progress= 70%|███████   | 305/435 [2:38:26<1:34:04, 43.42s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:07:00+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 45%|████▌     | 197/435 [2:37:33<5:20:26, 80.79s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:09:01+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280 progress= 65%|██████▍   | 282/435 [2:40:09<1:44:15, 40.89s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:09:01+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_300 progress= 71%|███████   | 308/435 [2:40:29<1:28:39, 41.89s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:09:01+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190 progress= 46%|████▌     | 199/435 [2:40:15<5:17:32, 80.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:11:01+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280 progress= 66%|██████▌   | 285/435 [2:42:10<1:41:27, 40.58s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:11:01+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310 progress= 71%|███████▏  | 310/435 [2:42:01<1:33:02, 44.66s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_300
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310 (tracker=310, removed 1)
+[2026-07-18T10:11:01+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 46%|████▌     | 200/435 [2:41:47<5:29:26, 84.11s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_190
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 (tracker=200, removed 1)
+[2026-07-18T10:13:02+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280 progress= 66%|██████▌   | 288/435 [2:44:15<1:42:13, 41.73s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:13:02+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310 progress= 72%|███████▏  | 313/435 [2:44:03<1:25:03, 41.83s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:13:02+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 46%|████▋     | 202/435 [2:44:26<5:18:28, 82.01s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:15:02+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_290 progress= 67%|██████▋   | 291/435 [2:46:24<1:41:57, 42.48s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_280
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_290 (tracker=290, removed 1)
+[2026-07-18T10:15:02+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310 progress= 73%|███████▎  | 316/435 [2:46:05<1:21:35, 41.14s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:15:02+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 47%|████▋     | 203/435 [2:45:47<5:14:50, 81.42s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:17:03+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_290 progress= 68%|██████▊   | 294/435 [2:48:23<1:34:58, 40.42s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:17:03+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310 progress= 73%|███████▎  | 319/435 [2:48:11<1:20:26, 41.60s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:17:03+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 47%|████▋     | 205/435 [2:48:26<5:09:16, 80.68s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:19:03+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_290 progress= 68%|██████▊   | 297/435 [2:50:22<1:32:03, 40.03s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:19:03+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_320 progress= 74%|███████▍  | 322/435 [2:50:25<1:20:39, 42.83s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_310
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_320 (tracker=320, removed 1)
+[2026-07-18T10:19:03+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 47%|████▋     | 206/435 [2:49:46<5:07:50, 80.66s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:21:04+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300 progress= 69%|██████▊   | 299/435 [2:51:47<1:33:42, 41.34s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_290
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300 (tracker=300, removed 1)
+[2026-07-18T10:21:04+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_320 progress= 75%|███████▍  | 325/435 [2:52:28<1:15:56, 41.43s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:21:04+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 48%|████▊     | 208/435 [2:52:26<5:03:33, 80.24s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:23:04+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300 progress= 70%|██████▉   | 303/435 [2:54:38<1:31:47, 41.72s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:23:04+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_320 progress= 75%|███████▌  | 328/435 [2:54:30<1:13:14, 41.07s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:23:04+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200 progress= 48%|████▊     | 209/435 [2:53:45<4:59:56, 79.63s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:25:05+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300 progress= 70%|███████   | 305/435 [2:56:02<1:30:27, 41.75s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:25:05+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330 progress= 76%|███████▌  | 330/435 [2:56:01<1:16:29, 43.71s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_320
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330 (tracker=330, removed 1)
+[2026-07-18T10:25:05+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 49%|████▊     | 211/435 [2:56:22<4:53:56, 78.74s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_200
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 (tracker=210, removed 1)
+[2026-07-18T10:27:05+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300 progress= 71%|███████   | 308/435 [2:58:02<1:25:34, 40.43s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:27:05+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330 progress= 77%|███████▋  | 333/435 [2:58:08<1:12:18, 42.53s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:27:05+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 49%|████▊     | 212/435 [2:57:42<4:54:01, 79.11s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:29:06+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_310 progress= 71%|███████▏  | 311/435 [3:00:13<1:27:45, 42.46s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_300
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_310 (tracker=310, removed 1)
+[2026-07-18T10:29:06+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330 progress= 77%|███████▋  | 336/435 [3:00:12<1:09:13, 41.95s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:29:06+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 49%|████▉     | 214/435 [3:00:15<4:46:20, 77.74s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:31:06+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_310 progress= 72%|███████▏  | 314/435 [3:02:14<1:22:37, 40.97s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:31:06+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330 progress= 78%|███████▊  | 339/435 [3:02:15<1:06:25, 41.52s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:31:06+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 49%|████▉     | 215/435 [3:01:31<4:43:11, 77.23s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:33:07+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_310 progress= 73%|███████▎  | 317/435 [3:04:20<1:22:57, 42.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:33:07+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_340 progress= 79%|███████▊  | 342/435 [3:04:27<1:05:36, 42.33s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_330
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_340 (tracker=340, removed 1)
+[2026-07-18T10:33:07+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 50%|████▉     | 217/435 [3:04:04<4:40:17, 77.14s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:35:07+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320 progress= 73%|███████▎  | 319/435 [3:05:39<1:19:14, 40.99s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_310
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320 (tracker=320, removed 1)
+[2026-07-18T10:35:07+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_340 progress= 79%|███████▉  | 345/435 [3:06:29<1:01:49, 41.21s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:35:08+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210 progress= 50%|█████     | 219/435 [3:06:37<4:36:33, 76.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:37:08+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320 progress= 74%|███████▍  | 323/435 [3:08:33<1:18:18, 41.95s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:37:08+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_340 progress= 80%|████████  | 348/435 [3:08:34<1:00:18, 41.59s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:37:08+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 51%|█████     | 220/435 [3:08:05<4:47:35, 80.26s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_210
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 (tracker=220, removed 1)
+[2026-07-18T10:39:08+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320 progress= 75%|███████▍  | 326/435 [3:10:34<1:14:27, 40.99s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:39:08+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350 progress= 80%|████████  | 350/435 [3:10:07<1:03:01, 44.48s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_340
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350 (tracker=350, removed 1)
+[2026-07-18T10:39:09+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 51%|█████     | 221/435 [3:09:22<4:42:24, 79.18s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:41:09+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320 progress= 76%|███████▌  | 329/435 [3:12:42<1:14:09, 41.98s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:41:09+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350 progress= 81%|████████  | 353/435 [3:12:11<57:43, 42.24s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:41:09+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 51%|█████▏    | 223/435 [3:12:01<4:40:33, 79.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:43:09+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_330 progress= 76%|███████▌  | 331/435 [3:14:12<1:14:56, 43.24s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_320
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_330 (tracker=330, removed 1)
+[2026-07-18T10:43:10+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350 progress= 82%|████████▏ | 356/435 [3:14:13<54:22, 41.30s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:43:10+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 52%|█████▏    | 225/435 [3:14:35<4:34:07, 78.32s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:45:10+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_330 progress= 77%|███████▋  | 334/435 [3:16:10<1:08:28, 40.68s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:45:10+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350 progress= 83%|████████▎ | 359/435 [3:16:19<52:46, 41.66s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:45:10+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 52%|█████▏    | 226/435 [3:15:50<4:29:22, 77.33s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:47:11+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_330 progress= 77%|███████▋  | 337/435 [3:18:12<1:06:14, 40.56s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:47:11+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 83%|████████▎ | 362/435 [3:18:31<51:52, 42.63s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_350
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 (tracker=360, removed 1)
+[2026-07-18T10:47:11+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 52%|█████▏    | 228/435 [3:18:19<4:21:48, 75.89s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:49:11+00:00] [full] job=205662 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 78%|███████▊  | 340/435 [3:20:21<1:08:09, 43.05s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_330
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 (tracker=340, removed 1)
+[2026-07-18T10:49:11+00:00] [moe] job=205663 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 365/435 [3:20:40<50:23, 43.19s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:49:12+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220 progress= 53%|█████▎    | 229/435 [3:19:32<4:17:38, 75.04s/it]
+[cleanup] removed /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_220
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: kept /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 (tracker=230, removed 1)
+[2026-07-18T10:51:12+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:51:12+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:51:12+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 53%|█████▎    | 231/435 [3:22:14<4:24:36, 77.83s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:53:12+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:53:13+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:53:13+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 53%|█████▎    | 232/435 [3:23:29<4:20:22, 76.96s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:55:13+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:55:13+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:55:13+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 54%|█████▍    | 234/435 [3:25:57<4:12:36, 75.40s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:57:14+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:57:14+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:57:14+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 54%|█████▍    | 236/435 [3:28:25<4:07:53, 74.74s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T10:59:14+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T10:59:14+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T10:59:14+00:00] [attention_only] job=205664 state=RUNNING ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 54%|█████▍    | 237/435 [3:29:43<4:09:49, 75.70s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+[2026-07-18T11:01:14+00:00] [full] job=205662 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340 progress= 79%|███████▉  | 343/435 [3:22:27<1:04:07, 41.82s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full: 1 ckpt(s), nothing to remove
+[2026-07-18T11:01:15+00:00] [moe] job=205663 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360 progress= 84%|████████▍ | 367/435 [3:22:02<47:39, 42.06s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe: 1 ckpt(s), nothing to remove
+[2026-07-18T11:01:15+00:00] [attention_only] job=205664 state=CANCELLED by 10050 ckpt=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230 progress= 55%|█████▍    | 238/435 [3:30:58<4:07:57, 75.52s/it]
+[cleanup] /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only: 1 ckpt(s), nothing to remove
+slurmstepd: error: *** JOB 205665 ON cn23 CANCELLED AT 2026-07-18T11:01:52 ***

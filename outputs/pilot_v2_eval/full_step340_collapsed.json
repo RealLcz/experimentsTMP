@@ -1,0 +1,13 @@
+{
+  "name": "full_step340_collapsed",
+  "model_path": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_eval/merged_models/full_step340_collapsed",
+  "actor_dir": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_full/global_step_340/actor",
+  "training_step": 340,
+  "notes": "COLLAPSED checkpoint only; pre-collapse step-60 ckpt no longer on disk.",
+  "test_file": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet",
+  "max_samples": 5000,
+  "elapsed_sec": 128.38694405555725,
+  "accuracy": 0.0,
+  "num_samples": 5000,
+  "num_correct": 0
+}

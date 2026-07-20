@@ -1,0 +1,13 @@
+{
+  "name": "moe_step360_collapsed",
+  "model_path": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_eval/merged_models/moe_step360_collapsed",
+  "actor_dir": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_moe/global_step_360/actor",
+  "training_step": 360,
+  "notes": "COLLAPSED checkpoint only; pre-collapse step-70 ckpt no longer on disk.",
+  "test_file": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet",
+  "max_samples": 5000,
+  "elapsed_sec": 145.4635934829712,
+  "accuracy": 0.0,
+  "num_samples": 5000,
+  "num_correct": 0
+}

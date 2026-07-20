@@ -1,0 +1,34 @@
+{
+  "mode": "full",
+  "model_type": "olmoe",
+  "total_parameters": 6919161856,
+  "trainable_parameters": 6919161856,
+  "frozen_parameters": 0,
+  "trainable_ratio": 1.0,
+  "categories": {
+    "attention": {
+      "trainable": 268500992,
+      "total": 268500992
+    },
+    "experts": {
+      "trainable": 6442450944,
+      "total": 6442450944
+    },
+    "router": {
+      "trainable": 2097152,
+      "total": 2097152
+    },
+    "norm": {
+      "trainable": 67584,
+      "total": 67584
+    },
+    "embedding": {
+      "trainable": 103022592,
+      "total": 103022592
+    },
+    "lm_head": {
+      "trainable": 103022592,
+      "total": 103022592
+    }
+  }
+}

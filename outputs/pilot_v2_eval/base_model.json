@@ -1,0 +1,13 @@
+{
+  "name": "base_model",
+  "model_path": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/OLMoE-1B-7B-0125-Instruct",
+  "actor_dir": null,
+  "training_step": null,
+  "notes": "Untrained OLMoE-1B-7B-0125-Instruct baseline.",
+  "test_file": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet",
+  "max_samples": 5000,
+  "elapsed_sec": 232.34413862228394,
+  "accuracy": 0.1716,
+  "num_samples": 5000,
+  "num_correct": 858
+}

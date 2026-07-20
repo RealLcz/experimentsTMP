@@ -1,0 +1,13 @@
+{
+  "name": "attention_only_step230",
+  "model_path": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_eval/merged_models/attention_only_step230",
+  "actor_dir": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/pilot_v2_attention_only/global_step_230/actor",
+  "training_step": 230,
+  "notes": "Healthy checkpoint; training stopped manually at ~232/435.",
+  "test_file": "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet",
+  "max_samples": 5000,
+  "elapsed_sec": 178.02640223503113,
+  "accuracy": 0.1972,
+  "num_samples": 5000,
+  "num_correct": 986
+}

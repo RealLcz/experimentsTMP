@@ -1,0 +1,406 @@
+[slurm_gemma4_pilot] mode=full
+[slurm_gemma4_pilot] node: cn24
+[slurm_gemma4_pilot] SLURM_JOB_ID: 206095
+[slurm_gemma4_pilot] SLURM_JOB_NAME: workingF
+[gemma4] transformers 5.14.1 already satisfies Gemma 4 requirement
+[gemma4] vllm 0.19.1 already satisfies Gemma 4 requirement
+[gemma4] Removing broken/incompatible flash_attn...
+[gemma4] flash_attn removed; vLLM will use torch/triton backends
+[slurm_gemma4_pilot] nnodes=1 n_gpus_per_node=8
+[download_gemma4] Model already present at /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
++++ dirname experiments/moe_localized_rl/scripts/run_pilot_gemma4_full.sh
+++ cd experiments/moe_localized_rl/scripts
+++ pwd
++ SCRIPT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts
++ source /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/verl/experiments/moe_localized_rl/scripts/pilot_v2_checkpoint_policy.sh
+++ export SAVE_FREQ=50
+++ SAVE_FREQ=50
+++ export MAX_ACTOR_CKPT_TO_KEEP=1
+++ MAX_ACTOR_CKPT_TO_KEEP=1
+++ export RESUME_MODE=disable
+++ RESUME_MODE=disable
+++ export TEST_FREQ=100
+++ TEST_FREQ=100
+++ export VAL_BEFORE_TRAIN=False
+++ VAL_BEFORE_TRAIN=False
+++ export 'CKPT_SAVE_CONTENTS=['\''model'\'']'
+++ CKPT_SAVE_CONTENTS='['\''model'\'']'
++ MODEL_PATH=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it
++ TRAIN_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet
++ TEST_FILE=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet
++ N_GPUS=8
++ NNODES=1
++ TRAIN_BATCH_SIZE=128
++ PPO_MINI_BATCH_SIZE=32
++ MAX_PROMPT_LENGTH=1024
++ MAX_RESPONSE_LENGTH=2048
++ PPO_MAX_TOKEN_LEN_PER_GPU=16384
++ ROLLOUT_N=16
++ ROLLOUT_TP=2
++ ROLLOUT_GPU_MEM_UTIL=0.45
++ ACTOR_LR=1e-6
++ CLIP_RATIO_LOW=3e-4
++ CLIP_RATIO_HIGH=4e-4
++ TOTAL_EPOCHS=15
++ TOTAL_TRAINING_STEPS=100
++ PROJECT_NAME=gemma4_localized_rl
++ EXPERIMENT_NAME=gemma4_26b_a4b_gspo_full_math_seed0
++ OUTPUT_DIR=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingF
++ PARAM_MODE=full
++ SEED=42
++ mkdir -p /mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingF
++ DATA=(algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False data.train_files="['$TRAIN_FILE']" data.val_files="['$TEST_FILE']" data.train_batch_size=${TRAIN_BATCH_SIZE} data.max_prompt_length=${MAX_PROMPT_LENGTH} data.max_response_length=${MAX_RESPONSE_LENGTH} data.filter_overlong_prompts=True data.truncation='error' data.shuffle=True data.seed=${SEED} data.continuous_token.model_family=gemma4)
++ MODEL=(actor_rollout_ref.model.path="$MODEL_PATH" actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True +actor_rollout_ref.model.override_config.attn_implementation=sdpa)
++ ACTOR=(actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=${CLIP_RATIO_LOW} actor_rollout_ref.actor.clip_ratio_high=${CLIP_RATIO_HIGH} actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=${ACTOR_LR} actor_rollout_ref.actor.ppo_mini_batch_size=${PPO_MINI_BATCH_SIZE} actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=${SEED} actor_rollout_ref.actor.checkpoint.save_contents="${CKPT_SAVE_CONTENTS}" actor_rollout_ref.actor.parameter_update.mode=${PARAM_MODE} actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=${OUTPUT_DIR})
++ ROLLOUT=(actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=${ROLLOUT_TP} actor_rollout_ref.rollout.gpu_memory_utilization=${ROLLOUT_GPU_MEM_UTIL} actor_rollout_ref.rollout.n=${ROLLOUT_N} actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=$((MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH)))
++ REF=(actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=${PPO_MAX_TOKEN_LEN_PER_GPU} actor_rollout_ref.ref.fsdp_config.param_offload=True)
++ TRAINER=(trainer.balance_batch=True trainer.critic_warmup=0 trainer.logger='["console","tensorboard"]' trainer.project_name=${PROJECT_NAME} trainer.experiment_name=${EXPERIMENT_NAME} trainer.default_local_dir=${OUTPUT_DIR} trainer.n_gpus_per_node=${N_GPUS} trainer.nnodes=${NNODES} trainer.save_freq=${SAVE_FREQ} trainer.max_actor_ckpt_to_keep=${MAX_ACTOR_CKPT_TO_KEEP} trainer.resume_mode=${RESUME_MODE} trainer.test_freq=${TEST_FREQ} trainer.total_epochs=${TOTAL_EPOCHS} trainer.total_training_steps=${TOTAL_TRAINING_STEPS} trainer.val_before_train=${VAL_BEFORE_TRAIN})
++ RAY_ARGS=()
++ [[ -n '' ]]
++ python3 -m verl.trainer.main_ppo algorithm.adv_estimator=grpo algorithm.use_kl_in_reward=False 'data.train_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/train.parquet'\'']' 'data.val_files=['\''/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/data/math/test.parquet'\'']' data.train_batch_size=128 data.max_prompt_length=1024 data.max_response_length=2048 data.filter_overlong_prompts=True data.truncation=error data.shuffle=True data.seed=42 data.continuous_token.model_family=gemma4 actor_rollout_ref.model.path=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/models/gemma-4-26B-A4B-it actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.model.trust_remote_code=True +actor_rollout_ref.model.override_config.attn_implementation=sdpa actor_rollout_ref.actor.strategy=fsdp2 actor_rollout_ref.actor.policy_loss.loss_mode=gspo actor_rollout_ref.actor.loss_agg_mode=seq-mean-token-mean actor_rollout_ref.actor.clip_ratio_low=3e-4 actor_rollout_ref.actor.clip_ratio_high=4e-4 actor_rollout_ref.actor.clip_ratio_c=10.0 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.ppo_mini_batch_size=32 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.ppo_max_token_len_per_gpu=16384 actor_rollout_ref.actor.use_kl_loss=False actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.actor.fsdp_config.param_offload=False actor_rollout_ref.actor.fsdp_config.optimizer_offload=False actor_rollout_ref.actor.data_loader_seed=42 'actor_rollout_ref.actor.checkpoint.save_contents=['\''model'\'']' actor_rollout_ref.actor.parameter_update.mode=full actor_rollout_ref.actor.parameter_update.strict=true actor_rollout_ref.actor.parameter_update.log_parameter_stats=true actor_rollout_ref.actor.parameter_update.output_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingF actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.tensor_model_parallel_size=2 actor_rollout_ref.rollout.gpu_memory_utilization=0.45 actor_rollout_ref.rollout.n=16 actor_rollout_ref.rollout.log_prob_use_dynamic_bsz=True actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.rollout.temperature=1.0 actor_rollout_ref.rollout.top_p=1.0 actor_rollout_ref.rollout.max_model_len=3072 actor_rollout_ref.ref.strategy=fsdp2 actor_rollout_ref.ref.log_prob_use_dynamic_bsz=True actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=16384 actor_rollout_ref.ref.fsdp_config.param_offload=True trainer.balance_batch=True trainer.critic_warmup=0 'trainer.logger=["console","tensorboard"]' trainer.project_name=gemma4_localized_rl trainer.experiment_name=gemma4_26b_a4b_gspo_full_math_seed0 trainer.default_local_dir=/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/outputs/workingF trainer.n_gpus_per_node=8 trainer.nnodes=1 trainer.save_freq=50 trainer.max_actor_ckpt_to_keep=1 trainer.resume_mode=disable trainer.test_freq=100 trainer.total_epochs=15 trainer.total_training_steps=100 trainer.val_before_train=False
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/main_ppo.py:171: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+  use_critic=need_critic(config),
+2026-07-18 19:36:20,705	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(pid=3912454)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3912454)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunnerV1 pid=3912454)[0m WARNING:2026-07-18 19:37:03,598:Platform 'nvidia' (PlatformCUDA) is registered but not available. This may be due to this ray actor being a CPU-only actor.
+[36m(TaskRunnerV1 pid=3912454)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(TaskRunnerV1 pid=3912454)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3913285)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913285)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913472)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913472)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913477)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913477)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913479)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913479)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913474)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913474)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913473)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913473)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913478)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913478)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913475)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913475)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3913476)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3913476)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunnerV1 pid=3912454)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/ppo/v1/trainer_base.py:129: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunnerV1 pid=3912454)[0m   self.use_critic = need_critic(self.config)
+[36m(TaskRunnerV1 pid=3912454)[0m [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):   0%|          | 0/7500 [00:00<?, ? examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  13%|█▎        | 1000/7500 [00:07<00:50, 128.20 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  27%|██▋       | 2000/7500 [00:08<00:18, 298.83 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  40%|████      | 3000/7500 [00:08<00:08, 515.20 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  53%|█████▎    | 4000/7500 [00:08<00:04, 785.35 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  67%|██████▋   | 5000/7500 [00:08<00:02, 1116.84 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  80%|████████  | 6000/7500 [00:09<00:01, 1491.96 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  93%|█████████▎| 7000/7500 [00:09<00:00, 1897.89 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 7500/7500 [00:09<00:00, 2118.89 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 7500/7500 [00:09<00:00, 784.63 examples/s] 
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):   0%|          | 0/5000 [00:00<?, ? examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  20%|██        | 1000/5000 [00:07<00:31, 128.89 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  40%|████      | 2000/5000 [00:08<00:10, 299.06 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  60%|██████    | 3000/5000 [00:08<00:03, 520.06 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1):  80%|████████  | 4000/5000 [00:08<00:01, 797.87 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 5000/5000 [00:08<00:00, 1130.43 examples/s]
+[36m(TaskRunnerV1 pid=3912454)[0m Filtering prompts longer than 1024 tokens (num_proc=1): 100%|██████████| 5000/5000 [00:08<00:00, 561.20 examples/s] 
+[36m(TaskRunnerV1 pid=3912454)[0m INFO:2026-07-18 19:37:56,760:train and validate dataloader initialized, train dataset size: 7494, val dataset size: 4999
+[36m(TaskRunnerV1 pid=3912454)[0m INFO:2026-07-18 19:37:56,760:Total training steps: 100
+[36m(TaskRunnerV1 pid=3912454)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/trainer/ppo/v1/trainer_base.py:676: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunnerV1 pid=3912454)[0m   if need_critic(config):
+[36m(TaskRunnerV1 pid=3912454)[0m INFO:2026-07-18 19:37:56,765:worker group kwargs: {'device_name': 'cuda'}
+[36m(TaskRunnerV1 pid=3912454)[0m INFO:2026-07-18 19:38:00,541:create worker group dict_keys(['actor_rollout'])
+[36m(pid=3914777)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914777)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914782)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914782)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914784)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914784)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914783)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914783)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914781)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914781)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914780)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914780)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914778)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914778)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914779)[0m /mnt/vast/home/ym56kacy/jinhe/conda_env/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=3914779)[0m   import pynvml  # type: ignore[import]
+[36m(pid=3914783)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914783)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914779)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914779)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914784)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914784)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914777)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914777)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914781)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914781)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914780)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914780)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914778)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914778)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(pid=3914782)[0m /mnt/vast/workspaces/cot_pixel_prediction/jinhe/MendelGM/wom/verl/verl/workers/engine/mindspeed/transformer_impl.py:24: UserWarning: NPU not support router replay for now.
+[36m(pid=3914782)[0m   from verl.utils.megatron.router_replay_patch import RouterReplay
+[36m(WorkerDict pid=3914779)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   0%|          | 2/1013 [00:01<14:24,  1.17it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:   0%|          | 2/1013 [00:01<15:48,  1.07it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   3%|▎         | 26/1013 [00:01<00:54, 18.18it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:   3%|▎         | 26/1013 [00:02<00:58, 16.78it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   5%|▍         | 48/1013 [00:02<00:37, 25.52it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:   5%|▍         | 48/1013 [00:02<00:39, 24.25it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   7%|▋         | 70/1013 [00:03<00:32, 28.99it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:   7%|▋         | 70/1013 [00:03<00:33, 28.06it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:   9%|▉         | 92/1013 [00:03<00:31, 29.47it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:   9%|▉         | 92/1013 [00:04<00:31, 28.87it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  11%|█▏        | 114/1013 [00:04<00:22, 39.54it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  11%|█▏        | 114/1013 [00:04<00:23, 38.84it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  13%|█▎        | 135/1013 [00:04<00:24, 36.23it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  13%|█▎        | 135/1013 [00:04<00:24, 35.83it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  15%|█▌        | 157/1013 [00:05<00:23, 35.76it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  15%|█▌        | 157/1013 [00:05<00:24, 35.50it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  18%|█▊        | 179/1013 [00:05<00:22, 37.68it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  18%|█▊        | 179/1013 [00:06<00:22, 37.48it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:   0%|          | 2/1013 [00:00<05:32,  3.04it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  20%|█▉        | 201/1013 [00:06<00:18, 43.00it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  20%|█▉        | 201/1013 [00:06<00:18, 42.83it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:   5%|▍         | 48/1013 [00:00<00:15, 63.32it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:   7%|▋         | 70/1013 [00:01<00:13, 67.80it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  22%|██▏       | 223/1013 [00:06<00:19, 40.17it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  22%|██▏       | 223/1013 [00:07<00:19, 40.06it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   0%|          | 2/1013 [00:00<07:25,  2.27it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:   9%|▉         | 92/1013 [00:01<00:15, 59.89it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  11%|█▏        | 114/1013 [00:01<00:12, 74.15it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  24%|██▍       | 245/1013 [00:07<00:19, 39.23it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  24%|██▍       | 245/1013 [00:07<00:19, 39.16it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   3%|▎         | 26/1013 [00:01<00:38, 25.36it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   5%|▍         | 48/1013 [00:01<00:22, 42.89it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:   0%|          | 2/1013 [00:01<10:01,  1.68it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  13%|█▎        | 135/1013 [00:02<00:14, 58.85it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:   5%|▍         | 47/1013 [00:01<00:19, 49.41it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  26%|██▋       | 266/1013 [00:08<00:20, 36.34it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  26%|██▋       | 266/1013 [00:08<00:20, 36.30it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  15%|█▌        | 157/1013 [00:02<00:17, 49.43it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   7%|▋         | 70/1013 [00:02<00:27, 34.37it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   0%|          | 0/1013 [00:00<?, ?it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  28%|██▊       | 288/1013 [00:08<00:20, 34.91it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  28%|██▊       | 288/1013 [00:08<00:20, 34.88it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   0%|          | 2/1013 [00:02<17:42,  1.05s/it]
+[36m(WorkerDict pid=3914784)[0m Loading weights:   9%|▉         | 92/1013 [00:03<00:29, 30.72it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  18%|█▊        | 179/1013 [00:03<00:23, 35.75it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:   7%|▋         | 73/1013 [00:02<00:37, 24.90it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  20%|█▉        | 201/1013 [00:04<00:19, 41.96it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  11%|█▏        | 114/1013 [00:04<00:31, 28.30it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  31%|███       | 310/1013 [00:10<00:27, 25.38it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  31%|███       | 310/1013 [00:10<00:27, 25.38it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   5%|▍         | 48/1013 [00:03<00:54, 17.65it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:   9%|▉         | 92/1013 [00:04<00:41, 21.95it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   7%|▋         | 69/1013 [00:03<00:35, 26.23it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  22%|██▏       | 223/1013 [00:05<00:24, 32.60it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  13%|█▎        | 135/1013 [00:04<00:30, 29.23it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  33%|███▎      | 332/1013 [00:11<00:28, 24.14it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  33%|███▎      | 332/1013 [00:11<00:29, 23.39it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:   0%|          | 2/1013 [00:03<29:28,  1.75s/it]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   0%|          | 2/1013 [00:02<25:11,  1.49s/it]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   3%|▎         | 26/1013 [00:03<01:25, 11.58it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  24%|██▍       | 245/1013 [00:06<00:26, 28.71it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  11%|█▏        | 114/1013 [00:05<00:42, 21.19it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  13%|█▎        | 135/1013 [00:05<00:31, 27.80it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   8%|▊         | 76/1013 [00:04<00:58, 16.06it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  35%|███▍      | 354/1013 [00:12<00:28, 23.12it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  35%|███▍      | 354/1013 [00:12<00:28, 22.90it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  15%|█▌        | 157/1013 [00:06<00:41, 20.87it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:   9%|▉         | 92/1013 [00:05<00:50, 18.21it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  18%|█▊        | 179/1013 [00:06<00:29, 28.38it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  26%|██▋       | 266/1013 [00:07<00:28, 26.14it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:   5%|▍         | 48/1013 [00:04<01:15, 12.78it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   5%|▍         | 48/1013 [00:04<01:10, 13.69it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  15%|█▌        | 157/1013 [00:06<00:34, 25.02it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  28%|██▊       | 288/1013 [00:07<00:23, 30.96it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  11%|█▏        | 114/1013 [00:06<00:39, 22.87it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  37%|███▋      | 376/1013 [00:13<00:29, 21.88it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  37%|███▋      | 376/1013 [00:13<00:29, 21.74it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:   7%|▋         | 70/1013 [00:05<00:55, 17.08it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  20%|█▉        | 201/1013 [00:07<00:30, 27.00it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   7%|▋         | 70/1013 [00:05<00:53, 17.78it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  31%|███       | 310/1013 [00:08<00:24, 28.22it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  18%|█▊        | 179/1013 [00:07<00:35, 23.64it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  13%|█▎        | 135/1013 [00:07<00:42, 20.73it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  39%|███▉      | 397/1013 [00:14<00:28, 21.31it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  39%|███▉      | 397/1013 [00:14<00:29, 21.22it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:   9%|▉         | 92/1013 [00:06<00:53, 17.26it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  22%|██▏       | 223/1013 [00:08<00:32, 24.05it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:   9%|▉         | 92/1013 [00:06<00:49, 18.60it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  33%|███▎      | 332/1013 [00:09<00:25, 26.77it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  20%|█▉        | 201/1013 [00:08<00:36, 22.43it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  11%|█▏        | 114/1013 [00:07<00:41, 21.42it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  15%|█▌        | 157/1013 [00:08<00:39, 21.50it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  11%|█▏        | 114/1013 [00:06<00:39, 23.05it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  22%|██▏       | 223/1013 [00:08<00:27, 29.02it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  24%|██▍       | 245/1013 [00:09<00:30, 25.32it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  41%|████▏     | 419/1013 [00:15<00:27, 21.38it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  41%|████▏     | 419/1013 [00:15<00:27, 21.31it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  35%|███▍      | 354/1013 [00:10<00:26, 24.89it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  26%|██▋       | 266/1013 [00:09<00:27, 27.38it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  18%|█▊        | 179/1013 [00:09<00:37, 22.52it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  13%|█▎        | 135/1013 [00:07<00:38, 22.70it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  37%|███▋      | 376/1013 [00:11<00:22, 28.50it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  44%|████▎     | 441/1013 [00:16<00:27, 20.92it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  13%|█▎        | 135/1013 [00:08<00:45, 19.13it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  44%|████▎     | 441/1013 [00:16<00:27, 20.68it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  24%|██▍       | 245/1013 [00:10<00:36, 21.01it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  28%|██▊       | 288/1013 [00:11<00:29, 24.74it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  15%|█▌        | 157/1013 [00:09<00:38, 21.97it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  15%|█▌        | 157/1013 [00:08<00:37, 22.71it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  18%|█▊        | 178/1013 [00:08<00:26, 31.31it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  39%|███▉      | 397/1013 [00:12<00:24, 25.41it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  20%|█▉        | 201/1013 [00:10<00:40, 19.92it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  26%|██▋       | 266/1013 [00:11<00:31, 24.03it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  31%|███       | 310/1013 [00:12<00:31, 22.27it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  18%|█▊        | 187/1013 [00:09<00:37, 21.78it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  41%|████▏     | 419/1013 [00:13<00:24, 24.50it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  46%|████▌     | 463/1013 [00:18<00:33, 16.63it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  46%|████▌     | 463/1013 [00:18<00:33, 16.65it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  28%|██▊       | 288/1013 [00:12<00:31, 23.08it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  33%|███▎      | 332/1013 [00:12<00:28, 24.20it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  22%|██▏       | 223/1013 [00:12<00:47, 16.70it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  44%|████▎     | 441/1013 [00:14<00:25, 22.87it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  20%|█▉        | 201/1013 [00:11<00:44, 18.12it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  18%|█▊        | 179/1013 [00:11<00:58, 14.27it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  46%|████▌     | 463/1013 [00:14<00:21, 25.19it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  48%|████▊     | 485/1013 [00:20<00:34, 15.21it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  48%|████▊     | 485/1013 [00:20<00:34, 15.22it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  50%|█████     | 507/1013 [00:20<00:25, 19.87it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  24%|██▍       | 245/1013 [00:13<00:46, 16.52it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  20%|█▉        | 201/1013 [00:12<00:48, 16.74it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  31%|███       | 310/1013 [00:14<00:42, 16.58it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  35%|███▍      | 354/1013 [00:14<00:35, 18.76it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  50%|█████     | 507/1013 [00:21<00:29, 17.34it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  22%|██▏       | 223/1013 [00:13<00:38, 20.35it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  48%|████▊     | 485/1013 [00:15<00:23, 22.89it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  26%|██▋       | 266/1013 [00:14<00:39, 18.88it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  22%|██▏       | 223/1013 [00:12<00:51, 15.26it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  35%|███▍      | 354/1013 [00:15<00:26, 25.04it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  37%|███▋      | 375/1013 [00:15<00:20, 31.69it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  37%|███▋      | 376/1013 [00:15<00:32, 19.64it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  28%|██▊       | 288/1013 [00:15<00:33, 21.52it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  50%|█████     | 507/1013 [00:16<00:21, 23.83it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  52%|█████▏    | 528/1013 [00:22<00:27, 17.58it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  52%|█████▏    | 528/1013 [00:22<00:28, 16.93it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  26%|██▋       | 266/1013 [00:13<00:32, 22.94it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  39%|███▉      | 397/1013 [00:16<00:27, 22.48it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  24%|██▍       | 245/1013 [00:14<00:39, 19.59it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  38%|███▊      | 384/1013 [00:16<00:29, 21.46it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  31%|███       | 310/1013 [00:16<00:33, 21.30it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  54%|█████▍    | 550/1013 [00:23<00:25, 18.49it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  54%|█████▍    | 550/1013 [00:23<00:25, 17.98it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  41%|████▏     | 419/1013 [00:17<00:25, 23.68it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  52%|█████▏    | 528/1013 [00:17<00:21, 22.22it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  28%|██▊       | 288/1013 [00:15<00:35, 20.39it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  26%|██▋       | 266/1013 [00:15<00:40, 18.62it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  54%|█████▍    | 550/1013 [00:18<00:17, 25.92it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  39%|███▉      | 397/1013 [00:17<00:32, 18.88it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  33%|███▎      | 332/1013 [00:16<00:30, 22.58it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  44%|████▎     | 441/1013 [00:17<00:22, 24.92it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  28%|██▊       | 288/1013 [00:16<00:31, 22.85it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  56%|█████▋    | 572/1013 [00:24<00:23, 18.87it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  56%|█████▋    | 572/1013 [00:24<00:23, 18.50it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  41%|████▏     | 419/1013 [00:18<00:25, 23.35it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  35%|███▍      | 354/1013 [00:17<00:25, 25.39it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  31%|███       | 310/1013 [00:16<00:25, 27.68it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  31%|███       | 310/1013 [00:16<00:33, 21.19it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  59%|█████▊    | 594/1013 [00:24<00:18, 23.21it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  59%|█████▊    | 594/1013 [00:25<00:18, 22.82it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  33%|███▎      | 331/1013 [00:16<00:19, 35.35it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  56%|█████▋    | 572/1013 [00:19<00:19, 22.94it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  61%|██████    | 615/1013 [00:25<00:12, 30.69it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  61%|██████    | 615/1013 [00:25<00:13, 30.20it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  33%|███▎      | 332/1013 [00:16<00:28, 23.74it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  44%|████▎     | 441/1013 [00:19<00:25, 22.37it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  46%|████▌     | 463/1013 [00:19<00:27, 20.21it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  59%|█████▊    | 594/1013 [00:20<00:17, 23.87it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  37%|███▋      | 376/1013 [00:18<00:28, 22.55it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  61%|██████▏   | 622/1013 [00:26<00:17, 21.93it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  61%|██████▏   | 622/1013 [00:26<00:18, 21.71it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  35%|███▍      | 354/1013 [00:17<00:26, 24.47it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  39%|███▉      | 397/1013 [00:19<00:23, 26.59it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  33%|███▎      | 337/1013 [00:18<00:34, 19.48it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  48%|████▊     | 485/1013 [00:20<00:23, 22.81it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  46%|████▌     | 463/1013 [00:20<00:25, 21.17it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  35%|███▍      | 354/1013 [00:18<00:29, 22.71it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  50%|█████     | 507/1013 [00:20<00:19, 25.68it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  61%|██████    | 616/1013 [00:21<00:17, 22.52it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  37%|███▋      | 376/1013 [00:18<00:25, 24.59it/s]
+[36m(WorkerDict pid=3914778)[0m Loading weights:  63%|██████▎   | 638/1013 [00:27<00:21, 17.77it/s]Loading weights: 100%|██████████| 1013/1013 [00:27<00:00, 36.99it/s]
+[36m(WorkerDict pid=3914779)[0m Loading weights:  63%|██████▎   | 638/1013 [00:27<00:21, 17.67it/s]Loading weights: 100%|██████████| 1013/1013 [00:27<00:00, 36.77it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  41%|████▏     | 419/1013 [00:20<00:23, 25.11it/s]
+[36m(WorkerDict pid=3914781)[0m Loading weights:  63%|██████▎   | 638/1013 [00:22<00:13, 27.35it/s]Loading weights: 100%|██████████| 1013/1013 [00:22<00:00, 46.00it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  37%|███▋      | 376/1013 [00:19<00:25, 25.46it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  52%|█████▏    | 528/1013 [00:21<00:18, 26.85it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  48%|████▊     | 485/1013 [00:21<00:24, 21.85it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  50%|█████     | 507/1013 [00:21<00:16, 30.04it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  44%|████▎     | 441/1013 [00:20<00:19, 28.62it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  39%|███▉      | 397/1013 [00:19<00:26, 23.62it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  39%|███▉      | 397/1013 [00:20<00:22, 27.36it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  54%|█████▍    | 550/1013 [00:22<00:16, 28.18it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  41%|████▏     | 419/1013 [00:19<00:20, 28.77it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  52%|█████▏    | 528/1013 [00:22<00:17, 28.06it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  46%|████▌     | 463/1013 [00:21<00:20, 26.42it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  48%|████▊     | 485/1013 [00:21<00:14, 35.78it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  56%|█████▋    | 572/1013 [00:22<00:15, 28.79it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  41%|████▏     | 419/1013 [00:21<00:23, 24.85it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  44%|████▎     | 441/1013 [00:20<00:19, 29.62it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  44%|████▎     | 441/1013 [00:21<00:16, 33.72it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  54%|█████▍    | 550/1013 [00:22<00:16, 28.16it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  59%|█████▊    | 594/1013 [00:23<00:12, 33.26it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  50%|█████     | 507/1013 [00:22<00:14, 35.11it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  46%|████▌     | 463/1013 [00:21<00:17, 30.80it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  46%|████▌     | 463/1013 [00:21<00:15, 35.64it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  56%|█████▋    | 572/1013 [00:23<00:15, 29.15it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  61%|██████    | 616/1013 [00:24<00:12, 32.88it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  48%|████▊     | 485/1013 [00:21<00:16, 31.62it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  59%|█████▊    | 594/1013 [00:24<00:12, 32.95it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  52%|█████▏    | 528/1013 [00:23<00:17, 27.88it/s]
+[36m(WorkerDict pid=3914784)[0m Loading weights:  63%|██████▎   | 638/1013 [00:24<00:11, 32.18it/s]Loading weights: 100%|██████████| 1013/1013 [00:24<00:00, 40.90it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  50%|█████     | 507/1013 [00:22<00:14, 33.83it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  48%|████▊     | 485/1013 [00:23<00:18, 28.07it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  54%|█████▍    | 550/1013 [00:24<00:13, 33.18it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  61%|██████    | 616/1013 [00:24<00:11, 34.31it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  56%|█████▋    | 572/1013 [00:24<00:10, 43.09it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  50%|█████     | 507/1013 [00:23<00:14, 34.17it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  59%|█████▊    | 593/1013 [00:24<00:08, 51.87it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  52%|█████▏    | 528/1013 [00:23<00:14, 32.39it/s]
+[36m(WorkerDict pid=3914780)[0m Loading weights:  63%|██████▎   | 638/1013 [00:25<00:10, 35.68it/s]Loading weights: 100%|██████████| 1013/1013 [00:25<00:00, 40.05it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  52%|█████▏    | 528/1013 [00:23<00:12, 39.41it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  59%|█████▉    | 602/1013 [00:24<00:10, 39.35it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  54%|█████▍    | 550/1013 [00:23<00:12, 36.15it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  61%|██████    | 616/1013 [00:25<00:10, 37.72it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  54%|█████▍    | 550/1013 [00:24<00:12, 38.09it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  56%|█████▋    | 572/1013 [00:24<00:10, 41.01it/s]
+[36m(WorkerDict pid=3914777)[0m Loading weights:  63%|██████▎   | 638/1013 [00:25<00:09, 39.90it/s]Loading weights: 100%|██████████| 1013/1013 [00:25<00:00, 39.20it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  56%|█████▋    | 572/1013 [00:24<00:11, 38.79it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  59%|█████▊    | 594/1013 [00:24<00:09, 42.86it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  59%|█████▊    | 594/1013 [00:25<00:09, 43.24it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  61%|██████    | 616/1013 [00:25<00:09, 41.71it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  61%|██████    | 616/1013 [00:25<00:08, 44.90it/s]
+[36m(WorkerDict pid=3914783)[0m Loading weights:  63%|██████▎   | 638/1013 [00:25<00:07, 47.89it/s]Loading weights: 100%|██████████| 1013/1013 [00:25<00:00, 39.96it/s]
+[36m(WorkerDict pid=3914782)[0m Loading weights:  63%|██████▎   | 638/1013 [00:26<00:07, 49.37it/s]Loading weights: 100%|██████████| 1013/1013 [00:26<00:00, 38.92it/s]
+[36m(WorkerDict pid=3914782)[0m WARNING:2026-07-18 19:39:31,389:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914779)[0m WARNING:2026-07-18 19:39:32,164:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914777)[0m WARNING:2026-07-18 19:39:32,289:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914781)[0m WARNING:2026-07-18 19:39:32,278:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914778)[0m WARNING:2026-07-18 19:39:32,281:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914784)[0m WARNING:2026-07-18 19:39:33,167:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914783)[0m WARNING:2026-07-18 19:39:33,283:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+[36m(WorkerDict pid=3914780)[0m WARNING:2026-07-18 19:39:34,163:FSDP wrap policy: skipped missing layer class names ['Gemma4AudioLayer'], wrapping ['Gemma4TextDecoderLayer', 'Gemma4VisionEncoderLayer', 'Gemma4VisionPatchEmbedder']
+slurmstepd: error: *** JOB 206095 ON cn24 CANCELLED AT 2026-07-18T19:39:54 ***
