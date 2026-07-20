@@ -1,0 +1,21 @@
+{
+  "full": {
+    "job_id": "205662",
+    "experiment": "olmoe_gspo_full_math_seed0",
+    "output_dir": "pilot_v2_full",
+    "resubmits": 2
+  },
+  "moe": {
+    "job_id": "205663",
+    "experiment": "olmoe_gspo_moe_math_seed0",
+    "output_dir": "pilot_v2_moe",
+    "resubmits": 2
+  },
+  "attention_only": {
+    "job_id": "205664",
+    "experiment": "olmoe_gspo_attention_only_math_seed0",
+    "output_dir": "pilot_v2_attention_only",
+    "resubmits": 0
+  },
+  "watchdog_job_id": "205665"
+}

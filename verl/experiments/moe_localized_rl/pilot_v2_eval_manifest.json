@@ -1,0 +1,25 @@
+{
+  "attention_only": {
+    "status": "stopped_for_eval",
+    "checkpoint": "outputs/pilot_v2_attention_only/global_step_230",
+    "training_step": 230,
+    "healthy": true,
+    "notes": "Stopped manually; reward~0.22, resp_len~305 at step 230"
+  },
+  "full": {
+    "status": "cancelled_collapsed",
+    "checkpoint": "outputs/pilot_v2_full/global_step_340",
+    "training_step": 340,
+    "healthy": false,
+    "notes": "Only collapsed ckpt on disk. Pre-collapse step-60 deleted by cleanup."
+  },
+  "moe": {
+    "status": "cancelled_collapsed",
+    "checkpoint": "outputs/pilot_v2_moe/global_step_360",
+    "training_step": 360,
+    "healthy": false,
+    "notes": "Only collapsed ckpt on disk. Pre-collapse step-70 deleted by cleanup."
+  },
+  "eval_job_id": "205797",
+  "eval_output_dir": "outputs/pilot_v2_eval"
+}

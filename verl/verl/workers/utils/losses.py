@@ -1,0 +1,253 @@
+# Copyright 2025 Bytedance Ltd. and/or its affiliates
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+import torch
+from tensordict import TensorDict
+
+from verl.trainer.ppo.core_algos import agg_loss, compute_value_loss, get_policy_loss_fn, kl_penalty
+from verl.utils import tensordict_utils as tu
+from verl.utils.dataset.dataset_utils import DatasetPadMode
+from verl.utils.metric import AggregationType, Metric
+from verl.utils.torch_functional import masked_mean, masked_sum
+from verl.workers.config import ActorConfig, CriticConfig
+from verl.workers.utils.padding import no_padding_2_padding
+
+
+def sft_loss(config: ActorConfig, model_output, data: TensorDict, dp_group=None):
+    pad_mode = tu.get_non_tensor_data(data=data, key="pad_mode", default=DatasetPadMode.NO_PADDING)
+    dp_size = data["dp_size"]
+    batch_num_tokens = data["batch_num_tokens"]
+
+    log_prob = model_output["log_probs"]
+
+    if pad_mode == DatasetPadMode.NO_PADDING:
+        # log_prob and loss mask are nested tensors of shape [bsz, j1]
+        # for each sample, loss mask shape is [1, prompt_length + response_length]
+        loss_mask = data["loss_mask"]
+
+        log_prob_flatten = log_prob.values()
+        loss_mask_flatten = loss_mask.values()
+
+        # left-shift the loss mask by one token to align with log_prob
+        loss_mask_flatten = torch.roll(loss_mask_flatten, shifts=-1, dims=0)
+
+        # NOTE: loss is averaged over all tokens in the batch across all data parallel groups,
+        # For FSDP backend, the loss is directly used for backward; while for Megatron backend,
+        # the loss should be scaled by `num_microbatches` for pp schedule.
+        loss = -masked_sum(log_prob_flatten, loss_mask_flatten) / batch_num_tokens * dp_size
+    else:
+        response_mask = data["response_mask"].to(bool)
+        loss = -masked_sum(log_prob, response_mask) / batch_num_tokens * dp_size
+
+    return loss, {}
+
+
+def ppo_loss(config: ActorConfig, model_output, data: TensorDict, dp_group=None):
+    """Computes ppo loss from model output (log_prob, entropy, values, etc. ) and old_log_probs from data."""
+    log_prob = no_padding_2_padding(model_output["log_probs"], data)
+    entropy = model_output.get("entropy", None)
+    if entropy is not None:
+        entropy = no_padding_2_padding(entropy, data)
+
+    # global batch info for loss aggregation
+    config.global_batch_info["dp_size"] = data["dp_size"]
+    config.global_batch_info["batch_num_tokens"] = data["batch_num_tokens"]
+    config.global_batch_info["global_batch_size"] = data["global_batch_size"]
+    config.global_batch_info["loss_scale_factor"] = config.loss_scale_factor
+
+    # assumes that if any of the global batch info is set, the policy_loss_fn will
+    # normalize using dp_size/global_bsz/global_token; in this case, metric aggregation should be SUM
+    # to reflect the mean loss over the global batch
+    if (
+        data["dp_size"] > 1
+        or data["batch_num_tokens"] is not None
+        or data["global_batch_size"] is not None
+        or config.loss_scale_factor is not None
+    ):
+        metric_aggregation = AggregationType.SUM
+    else:
+        metric_aggregation = AggregationType.MEAN
+
+    metrics = {}
+
+    # select fields and convert to padded tensor
+    fields = ["response_mask", "old_log_probs", "advantages"]
+    if "rollout_is_weights" in data:
+        fields.append("rollout_is_weights")
+    if "ref_log_prob" in data:
+        fields.append("ref_log_prob")
+    if "old_router_scores" in data:
+        fields.extend(["old_router_scores", "old_router_indices"])
+    data = data.select(*fields).to_padded_tensor()
+
+    response_mask = data["response_mask"].to(bool)
+    # compute policy loss
+    old_log_prob = data["old_log_probs"]
+    advantages = data["advantages"]
+    rollout_is_weights = data.get("rollout_is_weights", None)
+
+    # RSPO router-shift weight (computed from old/current router scores).
+    router_shift_weight = None
+    router_shift_metrics: dict = {}
+    rs_cfg = getattr(config.policy_loss, "router_shift", None)
+    if rs_cfg is not None and getattr(rs_cfg, "enabled", False):
+        missing = [
+            key
+            for key, source in (
+                ("old_router_scores", data),
+                ("current_router_scores", model_output),
+            )
+            if key not in source
+        ]
+        if missing:
+            raise RuntimeError(
+                "RSPO router_shift is enabled but required router traces are missing: "
+                + ", ".join(missing)
+            )
+
+        from verl.utils.router_shift.core import compute_router_shift_metrics, compute_router_shift_weight
+
+        old_scores = data["old_router_scores"]
+        current_scores = model_output["current_router_scores"]
+        if old_scores.shape != current_scores.shape:
+            raise RuntimeError(
+                "RSPO old/current router trace shape mismatch: "
+                f"old={tuple(old_scores.shape)}, current={tuple(current_scores.shape)}"
+            )
+        gamma_tilde, delta = compute_router_shift_weight(
+            old_scores,
+            current_scores,
+            gamma_min=getattr(rs_cfg, "gamma_min", 0.8),
+            stop_gradient=getattr(rs_cfg, "stop_gradient", True),
+        )
+        router_shift_weight = gamma_tilde
+        if getattr(rs_cfg, "log_diagnostics", True):
+            gamma_raw = torch.exp(-delta)
+            router_shift_metrics = compute_router_shift_metrics(
+                gamma_raw,
+                delta,
+                response_mask,
+                gamma_min=getattr(rs_cfg, "gamma_min", 0.8),
+            )
+
+    loss_agg_mode = config.loss_agg_mode
+
+    loss_mode = config.policy_loss.get("loss_mode", "vanilla")
+
+    policy_loss_fn = get_policy_loss_fn(loss_mode)
+    pg_loss, pg_metrics = policy_loss_fn(
+        old_log_prob=old_log_prob,
+        log_prob=log_prob,
+        advantages=advantages,
+        response_mask=response_mask,
+        loss_agg_mode=loss_agg_mode,
+        config=config,
+        rollout_is_weights=rollout_is_weights,
+        router_shift_weight=router_shift_weight,
+    )
+
+    # AggregationType.MEAN for pg metrics: assumes policy_loss_fn normalizes by local_bsz/local_tokens
+    # Ex: in compute_policy_loss_vanilla, pg_metrics are pg_clipfrac, ppo_kl, pg_clipfrac_lower
+    pg_metrics = Metric.from_dict(pg_metrics, aggregation=AggregationType.MEAN)
+    pg_metrics.update(router_shift_metrics)
+
+    metrics.update(pg_metrics)
+    metrics["actor/pg_loss"] = Metric(value=pg_loss, aggregation=metric_aggregation)
+    policy_loss = pg_loss
+
+    # add entropy loss
+    if entropy is not None:
+        entropy_loss = agg_loss(
+            loss_mat=entropy, loss_mask=response_mask, loss_agg_mode=loss_agg_mode, **config.global_batch_info
+        )
+        entropy_coeff = config.entropy_coeff
+        policy_loss -= entropy_coeff * entropy_loss
+        metrics["actor/entropy_loss"] = Metric(value=entropy_loss, aggregation=metric_aggregation)
+
+    # add kl loss
+    if config.use_kl_loss:
+        ref_log_prob = data["ref_log_prob"]
+        # compute kl loss
+        kld = kl_penalty(logprob=log_prob, ref_logprob=ref_log_prob, kl_penalty=config.kl_loss_type)
+        kl_loss = agg_loss(
+            loss_mat=kld, loss_mask=response_mask, loss_agg_mode=config.loss_agg_mode, **config.global_batch_info
+        )
+
+        policy_loss += kl_loss * config.kl_loss_coef
+        metrics["kl_loss"] = Metric(value=kl_loss, aggregation=metric_aggregation)
+        metrics["kl_coef"] = config.kl_loss_coef
+
+    return policy_loss, metrics
+
+
+def value_loss(config: CriticConfig, model_output, data: TensorDict, dp_group=None):
+    """value loss
+
+    Args:
+        config: CriticConfig
+        model_output: model output from the model
+        data: the input to the model
+        dp_group: data paralle group
+
+    Returns:
+        value loss
+    """
+    vpreds = no_padding_2_padding(model_output["values"], data)  # (bsz, response_length)
+
+    # Normalize the value loss over the global mini-batch (dp_size / batch_num_tokens /
+    # global_batch_size) instead of the local micro-batch, so the accumulated critic gradient is
+    # invariant to how the mini-batch is split into micro-batches (as the actor's ppo_loss does).
+    dp_size = data["dp_size"]
+    batch_num_tokens = data["batch_num_tokens"]
+    global_batch_size = data["global_batch_size"]
+
+    # When the loss is normalized over the global batch, each micro-batch contributes a partial sum,
+    # so the loss metric must be aggregated with SUM to reflect the global-batch mean.
+    if (
+        dp_size > 1
+        or batch_num_tokens is not None
+        or global_batch_size is not None
+        or config.loss_scale_factor is not None
+    ):
+        metric_aggregation = AggregationType.SUM
+    else:
+        metric_aggregation = AggregationType.MEAN
+
+    # select fields and convert to padded tensor
+    data = data.select("values", "returns", "response_mask").to_padded_tensor()
+    values = data["values"]
+    returns = data["returns"]
+    response_mask = data["response_mask"].to(bool)
+
+    vf_loss, vf_clipfrac = compute_value_loss(
+        vpreds=vpreds,
+        values=values,
+        returns=returns,
+        response_mask=response_mask,
+        cliprange_value=config.cliprange_value,
+        loss_agg_mode=config.loss_agg_mode,
+        dp_size=dp_size,
+        batch_num_tokens=batch_num_tokens,
+        global_batch_size=global_batch_size,
+        loss_scale_factor=config.loss_scale_factor,
+    )
+
+    metrics = {
+        "critic/vf_loss": Metric(value=vf_loss, aggregation=metric_aggregation),
+        "critic/vf_clipfrac": vf_clipfrac.detach().item(),
+        "critic/vpred_mean": masked_mean(vpreds, response_mask).detach().item(),
+    }
+
+    return vf_loss, metrics
