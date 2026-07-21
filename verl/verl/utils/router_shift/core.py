@@ -133,29 +133,40 @@ def stack_layer_traces(layer_traces: list[dict[str, torch.Tensor]]) -> tuple[tor
 
 
 def compute_router_shift_metrics(
-    gamma: torch.Tensor,
+    gamma_raw: torch.Tensor,
+    gamma_tilde: torch.Tensor,
     delta: torch.Tensor,
     response_mask: torch.Tensor,
     *,
     gamma_min: float = 0.8,
 ) -> dict[str, Any]:
-    """Compute RSPO diagnostics for TensorBoard logging."""
+    """Compute RSPO diagnostics for TensorBoard logging.
+
+    Args:
+        gamma_raw: Unclamped gamma (for floor_fraction).
+        gamma_tilde: Clamped gamma used as the actual weight (for weight_mean etc).
+        delta: Per-layer router deviation.
+        response_mask: Boolean mask over (batch, seq_len).
+        gamma_min: Floor threshold for floor_fraction computation.
+    """
     mask = response_mask.to(dtype=torch.bool)
     if mask.sum() == 0:
         return {}
 
-    gamma_flat = gamma[mask].float()
+    gamma_tilde_flat = gamma_tilde[mask].float()
+    gamma_raw_flat = gamma_raw[mask].float()
     delta_flat = delta[mask].float()
-    floor_frac = (gamma < gamma_min).float()[mask].mean()
+    floor_frac = (gamma_raw_flat < gamma_min).float().mean()
 
     def _percentile(x: torch.Tensor, q: float) -> float:
         return float(torch.quantile(x, q).item())
 
     return {
-        "router_shift/weight_mean": float(gamma_flat.mean().item()),
-        "router_shift/weight_min": float(gamma_flat.min().item()),
-        "router_shift/weight_p10": _percentile(gamma_flat, 0.10),
-        "router_shift/weight_p50": _percentile(gamma_flat, 0.50),
+        "router_shift/raw_gamma_mean": float(gamma_raw_flat.mean().item()),
+        "router_shift/weight_mean": float(gamma_tilde_flat.mean().item()),
+        "router_shift/weight_min": float(gamma_tilde_flat.min().item()),
+        "router_shift/weight_p10": _percentile(gamma_tilde_flat, 0.10),
+        "router_shift/weight_p50": _percentile(gamma_tilde_flat, 0.50),
         "router_shift/floor_fraction": float(floor_frac.item()),
         "router_shift/deviation_mean": float(delta_flat.mean().item()),
         "router_shift/deviation_p90": _percentile(delta_flat, 0.90),

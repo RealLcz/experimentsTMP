@@ -61,6 +61,18 @@ def _get_router_hook_targets(model: nn.Module) -> list[tuple[str, nn.Module, str
     except Exception:
         pass
 
+    # Qwen3-MoE: hook the gate (Qwen3MoeTopKRouter) inside each MoE block.
+    # The router forward returns (router_logits, router_scores, router_indices).
+    # We recompute full softmax probabilities from router_logits for gathering.
+    try:
+        from transformers.models.qwen3_moe.modeling_qwen3_moe import Qwen3MoeSparseMoeBlock
+
+        for name, module in model.named_modules():
+            if isinstance(module, Qwen3MoeSparseMoeBlock) and hasattr(module, "gate"):
+                targets.append((name, module, "qwen3_moe_block"))
+    except Exception:
+        pass
+
     return targets
 
 
@@ -95,6 +107,8 @@ class RouterTraceCapture:
                 self._hooks.append(module.register_forward_hook(self._gemma4_router_hook))
             elif kind == "olmoe_block":
                 self._hooks.append(module.register_forward_hook(self._olmoe_block_hook))
+            elif kind == "qwen3_moe_block":
+                self._hooks.append(module.register_forward_hook(self._qwen3_moe_block_hook))
 
     def _gpt_oss_router_hook(self, _module, _inputs, output) -> None:
         router_scores, router_indices = output
@@ -148,6 +162,36 @@ class RouterTraceCapture:
                 "scores": routing_weights,
                 "indices": selected_experts,
                 "router_scores_full": routing_weights_full.to(hidden_states.dtype),
+            }
+        )
+
+    def _qwen3_moe_block_hook(self, module, inputs, output) -> None:
+        """Qwen3-MoE: recompute full softmax from router logits for gathering.
+
+        Qwen3MoeTopKRouter.forward returns (router_logits, router_scores, router_indices).
+        router_scores are already normalized by top-k sum, but RSPO needs the raw
+        softmax probability for each expert so we can gather current scores at old
+        expert indices. We recompute from router_logits.
+        """
+        with torch.no_grad():
+            hidden_states = inputs[0].detach()
+            _batch_size, _sequence_length, hidden_dim = hidden_states.shape
+            hidden_states = hidden_states.view(-1, hidden_dim)
+            gate_output = module.gate(hidden_states)
+            # Qwen3MoeTopKRouter returns (router_logits, router_scores, router_indices)
+            if isinstance(gate_output, tuple):
+                router_logits = gate_output[0]
+            else:
+                router_logits = gate_output
+            router_probs_full = torch.nn.functional.softmax(router_logits, dim=-1, dtype=torch.float)
+            top_k = module.gate.top_k
+            routing_weights, selected_experts = torch.topk(router_probs_full, top_k, dim=-1)
+            routing_weights = routing_weights.to(hidden_states.dtype)
+        self._layer_traces.append(
+            {
+                "scores": routing_weights,
+                "indices": selected_experts,
+                "router_scores_full": router_probs_full.to(hidden_states.dtype),
             }
         )
 

@@ -137,6 +137,7 @@ def ppo_loss(config: ActorConfig, model_output, data: TensorDict, dp_group=None)
             gamma_raw = torch.exp(-delta)
             router_shift_metrics = compute_router_shift_metrics(
                 gamma_raw,
+                gamma_tilde,
                 delta,
                 response_mask,
                 gamma_min=getattr(rs_cfg, "gamma_min", 0.8),

@@ -213,15 +213,6 @@ class FSDPEngine(BaseEngine):
 
     def _init_device_mesh(self):
         world_size = torch.distributed.get_world_size()
-        # region agent log
-        import os as _os, json as _json, time as _t
-        _logp = "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/.cursor/debug-4eed6f.log"
-        try:
-            with open(_logp, "a") as _f:
-                _f.write(_json.dumps({"sessionId":"4eed6f","id":f"log_{int(_t.time()*1000)}_{world_size}","timestamp":int(_t.time()*1000),"location":"transformer_impl.py:_init_device_mesh","message":"entering _init_device_mesh","data":{"world_size":world_size,"rank":torch.distributed.get_rank(),"strategy":self.engine_config.strategy,"hostname":_os.popen('hostname').read().strip(),"cuda_visible_devices":_os.environ.get("CUDA_VISIBLE_DEVICES","UNSET"),"local_rank_env":_os.environ.get("LOCAL_RANK","UNSET"),"device_count":torch.cuda.device_count(),"torch_version":torch.__version__},"runId":"run1","hypothesisId":"H1_H3_H4"}) + "\n")
-        except Exception:
-            pass
-        # endregion
         from torch.distributed.device_mesh import init_device_mesh
 
         fsdp_size = self.engine_config.fsdp_size
@@ -951,16 +942,6 @@ class FSDPEngine(BaseEngine):
 
         params = convert_weight_keys(params, getattr(self.module, "_fsdp_wrapped_module", self.module))
 
-        # region agent log
-        import os as _os, json as _json, time as _t
-        _logp = "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/.cursor/debug-4eed6f.log"
-        try:
-            _keys = list(params.keys()) if hasattr(params, 'keys') else [k for k,_ in params]
-            with open(_logp, "a") as _f:
-                _f.write(_json.dumps({"sessionId":"4eed6f","id":f"log_{int(_t.time()*1000)}_params","timestamp":int(_t.time()*1000),"location":"transformer_impl.py:get_per_tensor_param","message":"param sync count","data":{"num_params":len(_keys),"first_10":_keys[:10],"last_10":_keys[-10:],"has_vision":any("vision" in k.lower() for k in _keys),"has_moe":any("moe" in k.lower() or "expert" in k.lower() for k in _keys)},"runId":"run1","hypothesisId":"H5"}) + "\n")
-        except Exception:
-            pass
-        # endregion
 
         log_gpu_memory_usage("Before offload_fsdp_model_to_cpu", logger=logger)
         if self._is_offload_param and not _skip_staging:

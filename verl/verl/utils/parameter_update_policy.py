@@ -433,6 +433,134 @@ def _build_audit_summary(
 
 
 # ---------------------------------------------------------------------------
+# Qwen3-MoE policy
+# ---------------------------------------------------------------------------
+
+def _get_qwen3_moe_policy_classes():
+    try:
+        from transformers.models.qwen3_moe.modeling_qwen3_moe import (
+            Qwen3MoeAttention,
+            Qwen3MoeForCausalLM,
+            Qwen3MoeRMSNorm,
+            Qwen3MoeSparseMoeBlock,
+        )
+    except Exception:
+        return None
+    return {
+        "root": Qwen3MoeForCausalLM,
+        "attention": Qwen3MoeAttention,
+        "moe_block": Qwen3MoeSparseMoeBlock,
+        "norm": Qwen3MoeRMSNorm,
+    }
+
+
+def _is_qwen3_moe_model(model: nn.Module) -> bool:
+    classes = _get_qwen3_moe_policy_classes()
+    if classes is not None:
+        root = classes["root"]
+        if isinstance(model, root) or any(isinstance(m, root) for m in model.modules()):
+            return True
+    config = getattr(model, "config", None)
+    if config is not None and getattr(config, "model_type", None) == "qwen3_moe":
+        return True
+    return False
+
+
+def apply_qwen3_moe_policy(model: nn.Module, mode: str) -> dict[str, Any]:
+    """Apply parameter update policy to Qwen3-MoE models.
+
+    Qwen3-MoE structure (transformers >= 4.45):
+        Qwen3MoeForCausalLM
+          .model.embed_tokens            -> embedding
+          .model.layers.{i}.self_attn    -> Qwen3MoeAttention
+          .model.layers.{i}.mlp          -> Qwen3MoeSparseMoeBlock
+              .gate                      -> Qwen3MoeTopKRouter (router)
+              .experts                   -> Qwen3MoeExperts (experts)
+          .model.layers.{i}.input_layernorm          -> Qwen3MoeRMSNorm
+          .model.layers.{i}.post_attention_layernorm -> Qwen3MoeRMSNorm
+          .model.norm                     -> Qwen3MoeRMSNorm
+          .lm_head                        -> nn.Linear
+    """
+    classes = _get_qwen3_moe_policy_classes()
+    if classes is None:
+        raise ImportError(
+            "Qwen3-MoE policy requested but transformers does not expose qwen3_moe models. "
+            "Install transformers>=4.45 or use mode='full'."
+        )
+
+    Qwen3MoeAttention = classes["attention"]
+    Qwen3MoeSparseMoeBlock = classes["moe_block"]
+    Qwen3MoeRMSNorm = classes["norm"]
+
+    if mode == "full":
+        for p in model.parameters():
+            p.requires_grad = True
+    else:
+        for p in model.parameters():
+            p.requires_grad = False
+
+    if mode in ("moe", "experts_only"):
+        for module in model.modules():
+            if isinstance(module, Qwen3MoeSparseMoeBlock):
+                # Router (gate) is trainable only in moe mode.
+                if mode == "moe" and hasattr(module, "gate"):
+                    _set_requires_grad(module.gate, True)
+                # Experts are trainable in both moe and experts_only modes.
+                if hasattr(module, "experts"):
+                    _set_requires_grad(module.experts, True)
+    elif mode == "attention_only":
+        for module in model.modules():
+            if isinstance(module, Qwen3MoeAttention):
+                _set_requires_grad(module, True)
+
+    # Build audit
+    categories: dict[str, dict[str, int]] = {
+        "attention": {"trainable": 0, "total": 0},
+        "experts": {"trainable": 0, "total": 0},
+        "router": {"trainable": 0, "total": 0},
+        "norm": {"trainable": 0, "total": 0},
+        "embedding": {"trainable": 0, "total": 0},
+        "lm_head": {"trainable": 0, "total": 0},
+    }
+    seen_params: set[int] = set()
+
+    def add(module: nn.Module, category: str) -> None:
+        for p in module.parameters(recurse=True):
+            pid = id(p)
+            if pid in seen_params:
+                continue
+            seen_params.add(pid)
+            n = _numel_of(p)
+            categories[category]["total"] += n
+            if p.requires_grad:
+                categories[category]["trainable"] += n
+
+    def is_attention_internal_norm(name: str) -> bool:
+        return ".self_attn." in f".{name}."
+
+    for name, module in model.named_modules():
+        if name.endswith("embed_tokens") and isinstance(module, nn.Embedding):
+            add(module, "embedding")
+        elif name == "lm_head" or name.endswith("lm_head"):
+            if isinstance(module, nn.Linear):
+                add(module, "lm_head")
+        elif isinstance(module, Qwen3MoeSparseMoeBlock):
+            if hasattr(module, "gate"):
+                add(module.gate, "router")
+            if hasattr(module, "experts"):
+                add(module.experts, "experts")
+        elif isinstance(module, Qwen3MoeAttention):
+            add(module, "attention")
+        elif isinstance(module, Qwen3MoeRMSNorm):
+            if is_attention_internal_norm(name):
+                add(module, "attention")
+            else:
+                add(module, "norm")
+
+    return _build_audit_summary(model, mode, categories)
+
+
+# ---------------------------------------------------------------------------
 # Registry / dispatch
 # ---------------------------------------------------------------------------
 
@@ -448,6 +576,10 @@ MODEL_PARAMETER_POLICIES: dict[str, Any] = {
     "gpt_oss": {
         "is_model": _is_gpt_oss_model,
         "apply": apply_gpt_oss_policy,
+    },
+    "qwen3_moe": {
+        "is_model": _is_qwen3_moe_model,
+        "apply": apply_qwen3_moe_policy,
     },
 }
 

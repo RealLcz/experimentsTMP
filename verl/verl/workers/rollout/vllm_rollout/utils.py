@@ -360,17 +360,6 @@ class vLLMColocateWorkerExtension:
             self.add_lora(lora_request)
             logger.info(f"vLLM load weights, loaded_params: {len(weights)}")
         else:
-            # region agent log
-            import os as _os, json as _json, time as _t
-            _logp = "/mnt/vast/home/ym56kacy/jinhe/MendelGM/wom/.cursor/debug-4eed6f.log"
-            try:
-                _names = [n for n,_ in weights] if not isinstance(weights, dict) else list(weights.keys())
-                _expert_names = [n for n in _names if "expert" in n.lower() or "router" in n.lower()][:5]
-                with open(_logp, "a") as _f:
-                    _f.write(_json.dumps({"sessionId":"4eed6f","id":f"log_{int(_t.time()*1000)}_vllm_recv","timestamp":int(_t.time()*1000),"location":"vllm_rollout/utils.py:_update_weights","message":"vLLM received weights","data":{"num_received":len(_names),"has_expert":any("expert" in n.lower() for n in _names),"sample_expert_names":_expert_names,"first_5":_names[:5]},"runId":"run1","hypothesisId":"H5"}) + "\n")
-            except Exception:
-                pass
-            # endregion
             param_updates, buffer_updates, named_buffers = split_buffer_updates(self.model_runner.model, weights)
             # Add the FP8 related logic here as sharding manager has been deprecated.
             # Check if FP8 quantization is enabled and apply appropriate weight loading
